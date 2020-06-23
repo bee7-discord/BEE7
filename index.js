@@ -14,6 +14,7 @@ const { VultrexDB } = require('vultrex.db');
 // Init some variables and store them in the client instance
 bot.commands = new Collection();
 bot.aliases = new Collection();
+
 bot.categories = fs.readdirSync('./commands/');
 // Require the command and event handler
 ["command", "event"].forEach(handler => {
