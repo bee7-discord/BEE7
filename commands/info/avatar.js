@@ -13,8 +13,8 @@ module.exports = {
             const embed = new MessageEmbed();
             // Get either the mention, the id, or the message author and send their avatar in a embed
             const member = message.mentions.members.last() || message.guild.members.cache.get(message.author) || message.member;
-            embed.setTitle(`${member.username}'s Avatar`);
-            embed.setImage(member.displayAvatarURL({ dynamic: true, format: 'png', size: 4096 }));
+            embed.setTitle(`${member.user.username}'s Avatar`);
+            embed.setImage(member.user.displayAvatarURL({ dynamic: true, format: 'png', size: 4096 }));
             embed.setColor('RANDOM');
             return message.channel.send(embed);
             // eslint-disable-next-line brace-style
