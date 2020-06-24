@@ -31,7 +31,7 @@ module.exports = {
             // Make a new embed
             const embed = new MessageEmbed();
             embed.setTitle(`**Commands**`);
-            embed.setFooter(`Bot made by Beatzoid#6969`, bot.user.displayAvatarURL());
+            embed.setFooter(`Bot made by Beatzoid#6969 - Logo made by Hailyy#0666`, bot.user.displayAvatarURL());
 
             // For every category, add it to the embed as a new field, and map all the command under that cateogry
             for (const id of categories) {

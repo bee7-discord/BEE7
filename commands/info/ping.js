@@ -14,7 +14,7 @@ module.exports = {
             const msg = await message.channel.send('🏓 Pinging...');
             const Embed = new MessageEmbed()
                 .setTitle(`🏓 Pong! 🏓`)
-                .setDescription(`💓 Heartbeat is ${Math.floor(msg.createdTimestamp - message.createdTimestamp)}ms\nAPI latency is ${Math.round(bot.ws.ping)}`)
+                .setDescription(`💓 Heartbeat is ${Math.floor(msg.createdTimestamp - message.createdTimestamp)}ms\nAPI latency is ${Math.round(bot.ws.ping)}ms`)
                 .setColor(`RANDOM`)
                 .setTimestamp();
             msg.delete();
