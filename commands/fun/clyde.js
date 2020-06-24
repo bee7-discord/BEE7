@@ -13,7 +13,7 @@ module.exports = {
         try {
             // Fetch data and send the image
             const msg = await message.channel.send('<a:loading:721436743550763055>');
-            if(!args[0]) return message.channel.send('Provide some text!');
+            if(!args[0]) return message.channel.send('Provide some text!') && msg.delete();
             axios.get(`https://nekobot.xyz/api/imagegen?type=clyde&text=${args.join('%20')}`).then(response => {
                 const image = new MessageAttachment(response.data.message, 'clyde.png');
                 msg.delete();
