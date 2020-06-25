@@ -57,6 +57,7 @@ module.exports = {
                     message.channel.send(Embed2);
                     break;
             }
+        // eslint-disable-next-line brace-style
         } catch (err) {
             console.log(`There was an error!\nError: ${err.stack}`);
             message.channel.send(`**ERROR!**\nThere was an error trying to run this command:\`${err.message}\`\nPlease do \`${prefix}support\`, join the support server, and report this error ASAP!`);

@@ -5,9 +5,11 @@ const db = require('../../db');
 module.exports = async (bot, message) => {
     // Get the prefix
     const newPrefix = await db.get(`Prefix_${message.guild.id}`) ? await db.get(`Prefix_${message.guild.id}`) : '!';
+    const mentionPrefix = RegExp(`^<@!${bot.user.id}> `);
+    const prefix = message.content.match(mentionPrefix) ? message.content.match(mentionPrefix)[0] : newPrefix;
 
     // If the message was sent by a bot, doesn't start with the prefix, or wasn't in a guild, return
-    if (message.author.bot || !message.content.startsWith(newPrefix) || !message.guild) return;
+    if (message.author.bot || !message.content.startsWith(prefix) || !message.guild) return;
     // If there is no message member, fetch the member
     if (!message.member) message.member = await message.guild.fetchMember(message);
     if(message.author.id === '709770158012629042') return message.channel.send('OOF get blacklisted');
@@ -17,7 +19,7 @@ module.exports = async (bot, message) => {
     require('./Message Event Code/Rank')(bot, message);
 
     // Variables
-    const args = message.content.slice(newPrefix.length).trim().split(/ +/g);
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
     if (cmd.length === 0) return;
     let command = bot.commands.get(cmd);

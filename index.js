@@ -40,5 +40,8 @@ mongoose.connect(uri, {
 .then(() => console.log(`Mongodb connected!`))
 .catch(err => console.log(err));
 
+// Error Handling
+process.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
+
 // Login to the bot
 bot.login(token);
