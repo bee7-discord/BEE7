@@ -16,7 +16,7 @@ module.exports = {
             // If there are no args, send the current slowmode
             if(!args[0]) return message.channel.send(`Current slowmode: **${humanizeDuration(message.channel.rateLimitPerUser * 1000)}**`);
             // if the slowmode is too big, send a message
-            if(ms(args[0]) >= 21600) return message.channel.send(`Bro why are you setting it for that long, set it to something shorter.`);
+            if(ms(args[0]) >= 21600) return message.channel.send('Bro why are you setting it for that long, set it to something shorter.');
             // Set the slowmode
             message.channel.setRateLimitPerUser(ms(args[0]), 'Slowmode command');
             // Send a message to the channel

@@ -8,11 +8,11 @@ module.exports = {
     timeout: 5000,
     permission: 'MANAGE_GUILD',
     run: async (bot, message, args) => {
-        console.log(`Trying to set new prefix for ${message.guild.name} (${message.guild.id})`);
         try {
             const prefix = await db.get(`Prefix_${message.guild.id}`) ? await db.get(`Prefix_${message.guild.id}`) : '!';
             if (!args[0]) return message.channel.send(`The prefix for ${message.guild.name} is \`${prefix}\``);
-            await db.set(`Prefix_${message.guild.id}`, args[0]);
+
+            await db.set(`Prefix_${message.guild.id}`, args[0]) && console.log(`Set new prefix for ${message.guild.name} (${message.guild.id}) to ${args[0]}`);
             message.channel.send(`Set the prefix to \`${args[0]}\``);
         }
         catch (err) {

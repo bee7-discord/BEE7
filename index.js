@@ -17,8 +17,8 @@ bot.aliases = new Collection();
 
 bot.categories = fs.readdirSync('./commands/');
 // Require the command and event handler
-["command", "event"].forEach(handler => {
-    require(`./handlers/${handler}`)(bot);
+["command", "event"].forEach(cmdHandler => {
+    require(`./handlers/${cmdHandler}`)(bot);
 });
 
 // Init a new Vultrex DB

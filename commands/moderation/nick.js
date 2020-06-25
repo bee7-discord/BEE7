@@ -15,7 +15,7 @@ module.exports = {
             // Get the user
             const user = message.guild.members.cache.get(args[0]) || message.mentions.members.first();
             // If no user return a message
-            if(!user) return message.delete() && message.channel.send(`Bruh specify a person`);
+            if(!user) return message.delete() && message.channel.send('Bruh specify a person');
             // Set the nickname
             await user.setNickname(args.slice(1).join(' '));
             // Return a message saying nickname was changed

@@ -27,7 +27,7 @@ module.exports = async (bot, message) => {
     // Makes aliases work, don't remove
     if (!command || !command.run) command = bot.commands.get(bot.aliases.get(cmd));
     if (!command) return;
-    if (command.ownerOnly && message.author.id !== "444655632424108032") return;
+    if (command.ownerOnly && message.author.id !== "444655632424108032") return message.reply('Lmao why would you think that would be a public command');
 
     // Permission Checks
     if (command.permission && message.author.id !== '444655632424108032') {
