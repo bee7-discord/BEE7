@@ -1,54 +1,71 @@
 /* eslint-disable brace-style */
 const ms = require('ms');
+const { MessageEmbed } = require('discord.js');
+const humanizeDuration = require('humanize-duration');
 
 module.exports = {
     name: 'mute',
     category: 'Moderation',
     description: 'Mute a member',
-    usage: 'mute <user mention or id> <time> [reason]',
+    usage: 'mute <user mention or id> <time> <reason>',
     timeout: 4000,
     permission: 'MANAGE_GUILD',
     // eslint-disable-next-line
     run: async (bot, message, args) => {
         try {
-            // If the time is not valid, or there is no user, send a message conveying that info
-            if (!args[0]) return message.channel.send(`Please provide an id or mention a user!`);
-            if (!args[1] || !args[1].match("[dhms]")) return message.channel.send(`You did not use the correct formatting for the time! The valid options are \`d\`, \`h\`, \`s\`, or \`m\``);
+            // check if the user trying to run the command has permissions to kick and ban members
+            if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])) {
+                message.channel.send("You don't have permission to mute someone.");
+            } else if (!args[0]) {
+                // check if there was a first arg
+                message.channel.send("You have to enter a user to mute.");
+            } else if (!args[1]) {
+                // check if there was a second arg
+                message.channel.send("Enter a mute duration.");
+            } else if (!args[2]) {
+                // check if there was a second arg
+                message.channel.send("Enter a mute reason.");
+            } else {
+                const muted = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+                const muter = message.author.tag;
+                const reason = args.slice(2).join(' ');
 
-            // Get the member
-            const member = message.mentions.members.first();
-            // If there is no member, send a message conveying that info
-            if (!member) {
-                return message.channel.send({
-                    embed: {
-                        color: 'RED',
-                        title: 'I couldn\'t find that user! Please make sure you **mention** the user.',
-                    },
-                });
+                // if the muted user exists
+                if (muted) {
+                    // check if the user about to me muted has kick and ban permissions, and if the message author has admin permissions
+                    if (muted.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR')) {
+                        message.channel.send("You can't mute that person.");
+                    } else {
+                        // have to create a custom muted role and add the id here
+                        const mutedRole = message.guild.roles.cache.find(x => x.name.toLowerCase() === 'muted');
+
+                        // if the role exists
+                        if (mutedRole) {
+                            muted.roles.add(mutedRole).catch(err => message.channel.send(err.message));
+
+                            // create an embed with the mute info and send it to the mod-logs channel
+                            const embed = new MessageEmbed()
+                                .setColor('#2f3136')
+                                .setTitle(`Member muted by ${muter}`)
+                                .addField('Muted Member', `${muted}`)
+                                .addField('Server', `${message.guild.name}`)
+                                .addField('Length', `${humanizeDuration(ms(args[1]))}`)
+                                .setDescription(`**Reason:** ${reason}`)
+                                .setTimestamp()
+                                .setFooter(`© ${message.guild.me.displayName}`, bot.user.displayAvatarURL());
+
+                            message.channel.send(embed);
+                            setTimeout(() => {
+                                muted.roles.remove(mutedRole).catch(err => message.channel.send(err.message));
+                            }, ms(args[1]));
+                        } else {
+                            message.channel.send("Can't find the muted role.");
+                        }
+                    }
+                } else {
+                    message.channel.send("Member not found.");
+                }
             }
-
-            // Find the muted role, and if there is none, send a message conveying that info
-            // TODO: Make the role assignable via the config command
-            const mutedRole = message.guild.roles.cache.find(role => role.name.toLowerCase() === 'muted');
-            if (!mutedRole) return message.channel.send(`Please make a role called \`Muted\` or \`muted\`!`);
-
-            // Get the reason, and if there is no reason set the reason to No reason provided
-            let reason = args.slice(2).join(' ');
-            if (!reason) reason = 'No reason provided.';
-
-            // Add the role to the user, and if there is an error, send it to the channel
-            member.roles.add(mutedRole.id).catch(err => {
-                return message.channel.send(`**ERROR:** ${err.message}\nEven though it says the person was muted, they *weren't*.`);
-            });
-
-            // When the mute expires, removed the muted role from the user
-            setTimeout(() => {
-                member.roles.remove(mutedRole.id).catch(err => {
-                    return message.channel.send(err.message);
-                });
-            }, ms(args[1]));
-
-            message.channel.send(`${member.username || member.user.username} was muted for \`${ms(args[1])}\`. Reason: ${reason}`);
         } catch (err) {
             const db = require('../../db');
             const prefix = await db.get(`Prefix_${message.guild.id}`) ? await db.get(`Prefix_${message.guild.id}`) : '!';

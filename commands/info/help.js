@@ -1,7 +1,6 @@
 /* eslint-disable brace-style */
 const { MessageEmbed } = require("discord.js");
 const db = require('../../db');
-const { Menu } = require('discord.js-menu');
 
 module.exports = {
     name: 'help',
@@ -29,119 +28,72 @@ module.exports = {
             // Make a new embed
             const embed = new MessageEmbed();
             embed.setTitle(`**Categories**`);
-            embed.setFooter(`Bot made by Beatzoid#6969 - Logo made by Hailyy#0666`, bot.user.displayAvatarURL());
+            embed.setFooter(`Bot made by Beatzoid#6969 - Logo made by Hailyy#0666 - Reactions time out in 120 seconds`, bot.user.displayAvatarURL());
             embed.setColor("#2f3136");
-            embed.setDescription(`⚙ - Config\n\n🎈 - Fun\n\nℹ - Info\n\n🆙 - Leveling\n\n🔨 - Moderation\n\n🔧 - Utility`);
+            embed.setDescription(`⚙ - Config\n\n🔘 - Reaction Roles\n\n🎈 - Fun\n\nℹ - Info\n\n🆙 - Leveling\n\n🔨 - Moderation\n\n🔧 - Utility`);
 
             // msg.delete();
             // return message.channel.send(embed);
 
-            // Reaction menu
-            new Menu(message.channel, message.author.id, [
-                {
-                    name: "main",
-                    content: embed,
-                    reactions: {
-                        "⏹": "stop",
-                        "⚙": "config",
-                        "🎈": "fun",
-                        "ℹ": "info",
-                        "🆙": "leveling",
-                        "🔨": "moderation",
-                        "🔧": "utility",
-                    },
-                },
-                {
-                    name: "config",
-                    content: new MessageEmbed({
-                        description: bot.commands.filter(cmd => cmd.category === 'Config').map(x => `${x.name} - ${x.description}\n\n`).join(''),
-                    }),
-                    reactions: {
-                        "🏠": "first",
-                        "⏹": "stop",
-                        "🎈": "fun",
-                        "ℹ": "info",
-                        "🆙": "leveling",
-                        "🔨": "moderation",
-                        "🔧": "utility",
-                    },
-                },
-                {
-                    name: "fun",
-                    content: new MessageEmbed({
-                        description: bot.commands.filter(cmd => cmd.category === 'Fun').map(x => `${x.name} - ${x.description}\n\n`).join(''),
-                    }),
-                    reactions: {
-                        "🏠": "first",
-                        "⏹": "stop",
-                        "⚙": "config",
-                        "ℹ": "info",
-                        "🆙": "leveling",
-                        "🔨": "moderation",
-                        "🔧": "utility",
-                    },
-                },
-                {
-                    name: "info",
-                    content: new MessageEmbed({
-                        description: bot.commands.filter(cmd => cmd.category === 'Info').map(x => `${x.name} - ${x.description}\n\n`).join(''),
-                    }),
-                    reactions: {
-                        "🏠": "first",
-                        "⏹": "stop",
-                        "⚙": "config",
-                        "🎈": "fun",
-                        "🆙": "leveling",
-                        "🔨": "moderation",
-                        "🔧": "utility",
-                    },
-                },
-                {
-                    name: "leveling",
-                    content: new MessageEmbed({
-                        description: bot.commands.filter(cmd => cmd.category === 'Levels').map(x => `${x.name} - ${x.description}\n\n`).join(''),
-                    }),
-                    reactions: {
-                        "🏠": "first",
-                        "⏹": "stop",
-                        "⚙": "config",
-                        "🎈": "fun",
-                        "ℹ": "info",
-                        "🔨": "moderation",
-                        "🔧": "utility",
-                    },
-                },
-                {
-                    name: "moderation",
-                    content: new MessageEmbed({
-                        description: bot.commands.filter(cmd => cmd.category === 'Moderation').map(x => `${x.name} - ${x.description}\n\n`).join(''),
-                    }),
-                    reactions: {
-                        "🏠": "first",
-                        "⏹": "stop",
-                        "⚙": "config",
-                        "🎈": "fun",
-                        "ℹ": "info",
-                        "🆙": "leveling",
-                        "🔧": "utility",
-                    },
-                },
-                {
-                    name: "utility",
-                    content: new MessageEmbed({
-                        description: bot.commands.filter(cmd => cmd.category === 'Utility').map(x => `${x.name} - ${x.description}\n\n`).join(''),
-                    }),
-                    reactions: {
-                        "🏠": "first",
-                        "⏹": "stop",
-                        "⚙": "config",
-                        "🎈": "fun",
-                        "ℹ": "info",
-                        "🆙": "leveling",
-                        "🔨": "moderation",
-                    },
-                },
-            ]);
+            const helpMsg = await message.channel.send(embed);
+            await helpMsg.react('🏠');
+            await helpMsg.react('🔘');
+            await helpMsg.react('⚙');
+            await helpMsg.react('🎈');
+            await helpMsg.react('🆙');
+            await helpMsg.react('🔨');
+            await helpMsg.react('🔧');
+
+            const filter = (reaction, user) => {
+                return reaction.emoji.name === '⚙' || reaction.emoji.name === '🏠' || reaction.emoji.name === '🔘' || reaction.emoji.name === '🎈' || reaction.emoji.name === '🆙' || reaction.emoji.name === '🔨' || reaction.emoji.name === '🔧' && user.id === message.author.id;
+            };
+
+            const collector = helpMsg.createReactionCollector(filter, { time: 120000 });
+
+            collector.on('collect', (reaction, user) => {
+                reaction.users.remove(user.id);
+                switch (reaction.emoji.name) {
+                    case '⚙':
+                        helpMsg.edit(new MessageEmbed({
+                            description: bot.commands.filter(cmd => cmd.category === 'Config').map(x => `${x.name} - ${x.description}\n\n`).join(''),
+                        }));
+                        break;
+                    case '🎈':
+                        helpMsg.edit(new MessageEmbed({
+                            description: bot.commands.filter(cmd => cmd.category === 'Fun').map(x => `${x.name} - ${x.description}\n\n`).join(''),
+                        }));
+                        break;
+                    case '🆙':
+                        helpMsg.edit(new MessageEmbed({
+                            description: bot.commands.filter(cmd => cmd.category === 'Levels').map(x => `${x.name} - ${x.description}\n\n`).join(''),
+                        }));
+                        break;
+                    case '🔨':
+                        helpMsg.edit(new MessageEmbed({
+                            description: bot.commands.filter(cmd => cmd.category === 'Moderation').map(x => `${x.name} - ${x.description}\n\n`).join(''),
+                        }));
+                        break;
+                    case '🔧':
+                        helpMsg.edit(new MessageEmbed({
+                            description: bot.commands.filter(cmd => cmd.category === 'Utility').map(x => `${x.name} - ${x.description}\n\n`).join(''),
+                        }));
+                        break;
+                    case '🔘':
+                        helpMsg.edit(new MessageEmbed({
+                            description: bot.commands.filter(cmd => cmd.category === 'Reaction Roles').map(x => `${x.name} - ${x.description}\n\n`).join(''),
+                        }));
+                        break;
+                    case '🏠':
+                        helpMsg.edit(embed);
+                        break;
+                }
+            });
+
+            collector.on('end', () => {
+                helpMsg.edit(`Selector timed out! Run the help command to create a new one`);
+            });
+
+
         } catch (err) {
             const prefix = await db.get(`Prefix_${message.guild.id}`) ? await db.get(`Prefix_${message.guild.id}`) : '!';
             console.log(`There was an error!\nError: ${err.stack}`);

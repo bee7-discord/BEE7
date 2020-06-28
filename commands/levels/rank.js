@@ -1,6 +1,7 @@
 /* eslint-disable brace-style */
 const { MessageAttachment } = require('discord.js');
 const Canvacord = require("canvacord");
+const { mem } = require('systeminformation');
 const canva = new Canvacord();
 
 module.exports = {
@@ -20,12 +21,15 @@ module.exports = {
             // If the person doesn't have a rank, return a message saying that
             if(!data || data.xp === null || data.totalXp === null) return message.reply(`this user doesn't have a rank yet!`);
 
+            let FullData = await bot.db.getAll(`level-${message.guild.id}`);
+            FullData = await FullData.sort((a, b) => b.value.totalXp - a.value.totalXp);
+
             // Generate a rank card and send it to the message channel
             const image = await canva.rank({
                 username: member.user.username,
                 discrim: member.user.discriminator,
                 level: data.level,
-                rank: '1',
+                rank: FullData.findIndex(x => x.key === `level-${message.guild.id}-${member.id}`) + 1,
                 neededXP: data.level * 40,
                 currentXP: data.xp || '0',
                 avatarURL: member.user.displayAvatarURL({ format: "png" }),
