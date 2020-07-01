@@ -1,21 +1,22 @@
 // eslint-disable-next-line
 const { MessageEmbed } = require('discord.js');
-const axios = require('axios').default;
 
 module.exports = {
-    name: 'sadcat',
+    name: 'wikihow',
     category: 'Fun',
-    description: 'Get a random sadcat image',
-    usage: 'sadcat',
+    description: 'Get a random/funny wikihow article',
+    usage: 'wikihow',
     timeout: 2000,
     // eslint-disable-next-line
     run: async(bot, message, args) => {
         try {
-            // Fetch a image and send the image
-            const msg = await message.channel.send('<a:loading:721436743550763055>');
-            axios.get(`https://api.alexflipnote.dev/sadcat`).then(response => {
-                msg.delete();
-                message.channel.send(response.data.file);
+            bot.ksoft.images.wikihow().then(res => {
+                const embed = new MessageEmbed()
+                .setDescription(`**[${res.article.title}](${res.article.link})**`)
+                .setImage(res.url)
+                .setFooter(`Powered by api.ksoft.si | Requested by ${message.author.username}`)
+                .setColor(`#2f3136`);
+                message.channel.send(embed);
             });
         // eslint-disable-next-line brace-style
         } catch (err) {

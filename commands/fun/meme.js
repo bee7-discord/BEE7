@@ -1,6 +1,5 @@
 // eslint-disable-next-line
 const { MessageEmbed } = require('discord.js');
-const got = require('got');
 
 module.exports = {
     name: 'meme',
@@ -13,25 +12,13 @@ module.exports = {
         try {
             const embed = new MessageEmbed();
             // Fetch a random meme from reddit
-            got('https://www.reddit.com/r/memes/random/.json').then(response => {
-                // Set up some variables
-                const content = JSON.parse(response.body);
-                const permalink = content[0].data.children[0].data.permalink;
-                const memeUrl = `https://reddit.com${permalink}`;
-                const memeImage = content[0].data.children[0].data.url;
-                const memeTitle = content[0].data.children[0].data.title;
-                const memeUpvotes = content[0].data.children[0].data.ups;
-                const memeDownvotes = content[0].data.children[0].data.downs;
-                const memeNumComments = content[0].data.children[0].data.num_comments;
-                // Set up the embed so it looks cool
-                embed.addField(`${memeTitle}`, `[View thread](${memeUrl})`);
-                embed.setImage(memeImage);
-                embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}`);
-                // Send the embed
-                message.channel.send(embed)
-                    // eslint-disable-next-line no-unused-vars
-                    .then(sent => console.log(`Sent a epic meme to ${message.author.username}`));
-                console.log('Bot responded with: ' + memeImage);
+            bot.ksoft.images.meme().then(response => {
+                embed.setTitle(response.post.title);
+                embed.setURL(response.post.link);
+                embed.setImage(response.url);
+                embed.setFooter(`👍 ${response.post.upvotes} 💬 ${response.post.comments} | Powered by api.ksoft.si | Requested by ${message.author.username}`);
+                embed.setColor('#2f3136');
+                message.channel.send(embed);
             });
             // eslint-disable-next-line brace-style
         } catch (err) {

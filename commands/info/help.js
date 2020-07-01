@@ -30,14 +30,13 @@ module.exports = {
             embed.setTitle(`**Categories**`);
             embed.setFooter(`Bot made by Beatzoid#6969 - Logo made by Hailyy#0666 - Reactions time out in 120 seconds`, bot.user.displayAvatarURL());
             embed.setColor("#2f3136");
-            embed.setDescription(`⚙ - Config\n\n🔘 - Reaction Roles\n\n🎈 - Fun\n\nℹ - Info\n\n🆙 - Leveling\n\n🔨 - Moderation\n\n🔧 - Utility`);
+            embed.setDescription(`⚙ - Config\n\n🎈 - Fun\n\nℹ - Info\n\n🆙 - Leveling\n\n🔨 - Moderation\n\n🔧 - Utility`);
 
             // msg.delete();
             // return message.channel.send(embed);
 
             const helpMsg = await message.channel.send(embed);
             await helpMsg.react('🏠');
-            await helpMsg.react('🔘');
             await helpMsg.react('⚙');
             await helpMsg.react('🎈');
             await helpMsg.react('🆙');
@@ -45,7 +44,7 @@ module.exports = {
             await helpMsg.react('🔧');
 
             const filter = (reaction, user) => {
-                return reaction.emoji.name === '⚙' || reaction.emoji.name === '🏠' || reaction.emoji.name === '🔘' || reaction.emoji.name === '🎈' || reaction.emoji.name === '🆙' || reaction.emoji.name === '🔨' || reaction.emoji.name === '🔧' && user.id === message.author.id;
+                return reaction.emoji.name === '⚙' || reaction.emoji.name === '🏠' || reaction.emoji.name === '🎈' || reaction.emoji.name === '🆙' || reaction.emoji.name === '🔨' || reaction.emoji.name === '🔧' && user.id === message.author.id;
             };
 
             const collector = helpMsg.createReactionCollector(filter, { time: 120000 });
@@ -76,11 +75,6 @@ module.exports = {
                     case '🔧':
                         helpMsg.edit(new MessageEmbed({
                             description: bot.commands.filter(cmd => cmd.category === 'Utility').map(x => `${x.name} - ${x.description}\n\n`).join(''),
-                        }));
-                        break;
-                    case '🔘':
-                        helpMsg.edit(new MessageEmbed({
-                            description: bot.commands.filter(cmd => cmd.category === 'Reaction Roles').map(x => `${x.name} - ${x.description}\n\n`).join(''),
                         }));
                         break;
                     case '🏠':

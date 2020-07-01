@@ -8,16 +8,19 @@ const fs = require('fs');
 // Init a new Client
 const bot = new Client({ disableEveryone: true });
 // Fetch token and mongo db uri from config.json
-const { token, uri } = require('./config.json');
+const { token, uri, apiKey } = require('./config.json');
 // Require mongoose
 const mongoose = require('mongoose');
 // Require vultrex.db
 const { VultrexDB } = require('vultrex.db');
+// Ksoft API
+const { KSoftClient } = require('@ksoft/api');
 
 // Init some variables and store them in the client instance
 bot.commands = new Collection();
 bot.aliases = new Collection();
 bot.snipes = new Map();
+bot.ksoft = new KSoftClient(apiKey);
 
 bot.categories = fs.readdirSync('./commands/');
 // Require the command and event handler

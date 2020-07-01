@@ -1,23 +1,19 @@
 // eslint-disable-next-line
-const { MessageEmbed } = require('discord.js');
-const axios = require('axios').default;
-
 module.exports = {
-    name: 'bird',
-    category: 'Fun',
-    description: 'Get a birb',
-    usage: 'bird',
-    timeout: 2000,
-    aliases: ["birb"],
+    name: 'purge',
+    category: 'Moderation',
+    description: 'Purge some messages',
+    usage: 'purge <number>',
+    timeout: 5000,
+    aliases: ["clear"],
+    permission: "MANAGE_MESSAGES",
     // eslint-disable-next-line
     run: async(bot, message, args) => {
         try {
-            // Fetch data from the api and send it
-            const msg = await message.channel.send('<a:loading:721436743550763055>');
-            axios.get(`https://api.alexflipnote.dev/birb`).then(response => {
-                msg.delete();
-                message.channel.send(response.data.file);
-            });
+            if(!args[0]) return message.channel.send("Please provide a number of messages to delete.");
+            if(Number(args[0]) + 1 > 100) return message.channel.send('Please provide a number less than 100!');
+            message.channel.bulkDelete(Number(args[0]) + 1);
+            message.channel.send(`Successfully purged ${args[0]} messages!`).then(msg => msg.delete({ timeout: 5000 }));
         // eslint-disable-next-line brace-style
         } catch (err) {
             const db = require('../../db');

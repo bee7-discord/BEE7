@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ksoft/api": "^3.1.9",
+    "alexa-bot-api": "^0.1.2",
     "alexflipnote.js": "^1.0.0",
     "ascii-table": "0.0.9",
     "axios": "^0.19.2",
