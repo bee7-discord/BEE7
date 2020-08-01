@@ -1,4 +1,8 @@
 const { readdirSync } = require("fs");
+const ascii = require('ascii-table');
+const table = new ascii('Commands');
+table.setHeading('File Name', 'Load Status');
+
 module.exports = (bot) => {
     // Read the directory called command
     readdirSync("./commands/").map(dir => {
@@ -7,14 +11,14 @@ module.exports = (bot) => {
         const commands = readdirSync(`./commands/${dir}/`).map(cmd => {
             // Get the command
             const pull = require(`../commands/${dir}/${cmd}`);
-            // Console log that it loaded the command
-            console.log(`Loaded command ${pull.name}`);
             // Add the command to bot.commands
             bot.commands.set(pull.name, pull);
+            table.addRow(cmd, '✓');
             // Load the aliases and add it to bot.aliases
             if (pull.aliases && Array.isArray(pull.aliases)) {
                 pull.aliases.forEach(alias => bot.aliases.set(alias, pull.name));
             }
         });
+        console.log(table.toString());
     });
 };
