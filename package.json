@@ -1,0 +1,42 @@
+{
+    "name": "bee7",
+    "version": "2.0.0",
+    "description": "Rewrite of the Discord Bot BEE7",
+    "main": "src/index",
+    "scripts": {
+        "start": "node src/index",
+        "dev": "nodemon src/index"
+    },
+    "keywords": [
+        "bee7",
+        "discord",
+        "bot"
+    ],
+    "author": "Beatzoid",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^7.6.0",
+        "eslint-config-tesseract": "0.0.3"
+    },
+    "dependencies": {
+        "bufferutil": "^4.0.1",
+        "chalk": "^4.1.0",
+        "common-tags": "^1.8.0",
+        "discord-paginate": "^1.0.2",
+        "discord.js-light": "^3.2.3",
+        "erlpack": "github:discordapp/erlpack",
+        "glob": "^7.1.6",
+        "moment": "^2.27.0",
+        "mongoose": "^5.9.29",
+        "ms": "^2.1.2",
+        "path": "^0.12.7",
+        "pretty-error": "^2.1.1",
+        "utf-8-validate": "^5.0.2",
+        "util": "^0.12.3",
+        "vultrex.haste": "^1.0.1",
+        "zlib-sync": "^0.1.7"
+    },
+    "jshintConfig": {
+        "esversion": "8"
+    }
+}
