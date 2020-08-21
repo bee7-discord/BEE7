@@ -35,9 +35,9 @@ module.exports = class extends Command {
             );
 
             await message.channel.send(
-                new MessageAttachment(image,"""deepfry.png")
+                new MessageAttachment(image, "deepfry.png")
             );
-            
+
             msg.delete();
         } catch (err) {
             this.client.utils.handleError(err, message);

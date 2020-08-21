@@ -1,5 +1,4 @@
 const Event = require("../../../Structures/Event");
-const prefixSchema = require("../../../models/prefix");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = class extends Event {
@@ -18,24 +17,13 @@ module.exports = class extends Event {
                 `My prefix for ${message.guild.name} is \`${this.client.prefix}\``
             );
 
-        // #region Prefix
-        let mongoPrefix;
-        const data = await prefixSchema.find({ guildId: message.guild.id });
-        if (!data.length) {
-            await prefixSchema.create({
-                guildId: message.guild.id,
-                prefix: "!"
-            });
-            mongoPrefix = "!";
-        } else {
-            mongoPrefix = data[0].prefix;
-        }
-        // #endregion Prefix
-
         // Set the prefix either to the bot mention or the actual prefix
-        const prefix = message.content.match(mentionRegexPrefix)
-            ? message.content.match(mentionRegexPrefix)[0]
-            : mongoPrefix;
+        let prefix;
+        message.content.match(mentionRegexPrefix)
+            ? (prefix = message.content.match(mentionRegexPrefix)[0])
+            : this.client.prefixes[message.guild.id] !== undefined
+            ? (prefix = this.client.prefixes[message.guild.id])
+            : this.client.prefixes[message.guild.id] === "!" && prefix === "!";
 
         if (!message.content.startsWith(prefix)) return;
 

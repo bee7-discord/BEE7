@@ -8,6 +8,7 @@ const client = require("alexflipnote.js");
 const alexclient = new client();
 const canvacord = require("canvacord");
 const emojis = require("../../config/emojis.json");
+const prefixSchema = require("../models/prefix");
 
 module.exports = class BEE7Client extends Client {
     constructor(options = {}) {
@@ -26,6 +27,14 @@ module.exports = class BEE7Client extends Client {
         this.canva = canvacord;
         this.emoji = emojis;
         this.owners = ["444655632424108032"];
+        this.prefixes = new Array();
+
+        (async () => {
+            const data = await prefixSchema.find({});
+            data.forEach((guild) => {
+                this.prefixes[guild.guildId] = guild.prefix;
+            });
+        })();
     }
 
     validate(options) {
