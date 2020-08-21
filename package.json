@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "bee7",
     "version": "2.0.0",
     "description": "Rewrite of the Discord Bot BEE7",
@@ -41,5 +42,42 @@
     },
     "jshintConfig": {
         "esversion": "8"
+=======
+    "name": "bee6",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon index.js",
+        "start": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@ksoft/api": "^3.1.9",
+        "alexflipnote.js": "^1.0.0",
+        "ascii-table": "0.0.9",
+        "axios": "^0.19.2",
+        "canvas": "^2.6.1",
+        "common-tags": "^1.8.0",
+        "danbot-hosting": "^0.1.2",
+        "discord.js": "^12.2.0",
+        "discord.js-pagination": "^1.0.2",
+        "dotenv": "^8.2.0",
+        "erela.js": "^1.1.8",
+        "humanize-duration": "^3.23.1",
+        "moment": "^2.26.0",
+        "mongoose": "^5.9.18",
+        "ms": "^2.1.2",
+        "node-fetch": "^2.6.0",
+        "node-superfetch": "^0.1.10",
+        "opendtb-wrapper": "^2.0.0",
+        "opusscript": "0.0.7",
+        "salvage.db": "^1.1.2",
+        "sqlite": "^4.0.11",
+        "systeminformation": "^4.26.9",
+        "vultrex.haste": "^1.0.1"
+>>>>>>> f8de2123240374283febf35aeefedd464e52d46d
     }
 }
