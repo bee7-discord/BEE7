@@ -1,11 +1,18 @@
+require("pretty-error").start();
+
 const { Client, Collection } = require("discord.js");
 const Logger = require("./Logger");
 const Util = require("./Util.js");
+const { KSoftClient } = require("@ksoft/api");
+const client = require("alexflipnote.js");
+const alexclient = new client();
+const canvacord = require("canvacord");
+const emojis = require("../../config/emojis.json");
 
 module.exports = class BEE7Client extends Client {
     constructor(options = {}) {
         super({
-            disableMentions: "everyone",
+            disableMentions: "everyone"
         });
         this.validate(options);
 
@@ -14,6 +21,10 @@ module.exports = class BEE7Client extends Client {
         this.events = new Collection();
         this.utils = new Util(this);
         this.logger = new Logger();
+        this.ksoft = new KSoftClient(options.ksoftKey);
+        this.alexclient = alexclient;
+        this.canva = canvacord;
+        this.emoji = emojis;
         this.owners = ["444655632424108032"];
     }
 

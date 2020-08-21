@@ -1,10 +1,9 @@
 const Event = require("../../../Structures/Event");
 const prefixSchema = require("../../../models/prefix");
-const { MessageEmbed } = require("discord.js-light");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = class extends Event {
     async run(message) {
-        console.log(message);
         // Mention regex
         const mentionRegex = RegExp(`^<@!${this.client.user.id}>$`);
         // Mention prefix
@@ -16,7 +15,7 @@ module.exports = class extends Event {
         // If they mentioned the bot, say the prefix of the current guild
         if (message.content.match(mentionRegex))
             message.channel.send(
-                `My prefix for ${message.guild.name} is \`${this.client.prefix}\``,
+                `My prefix for ${message.guild.name} is \`${this.client.prefix}\``
             );
 
         // #region Prefix
@@ -25,7 +24,7 @@ module.exports = class extends Event {
         if (!data.length) {
             await prefixSchema.create({
                 guildId: message.guild.id,
-                prefix: "!",
+                prefix: "!"
             });
             mongoPrefix = "!";
         } else {
@@ -50,7 +49,7 @@ module.exports = class extends Event {
         const command =
             this.client.commands.get(cmd.toLowerCase()) ||
             this.client.commands.get(
-                this.client.aliases.get(cmd.toLowerCase()),
+                this.client.aliases.get(cmd.toLowerCase())
             );
 
         if (!command) return;
@@ -65,8 +64,8 @@ module.exports = class extends Event {
                     new MessageEmbed()
                         .setTitle("🔐 Permission Denied 🔐")
                         .setDescription(
-                            `${message.author.tag} you need the ${command.permission} permission to access that command!`,
-                        ),
+                            `${message.author.tag} you need the ${command.permission} permission to access that command!`
+                        )
                 );
                 return;
             }

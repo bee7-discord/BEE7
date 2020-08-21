@@ -3,7 +3,7 @@ const { promisify } = require("util");
 const glob = promisify(require("glob"));
 const Command = require("./Command.js");
 const Event = require("./Event.js");
-const { MessageEmbed } = require("discord.js-light");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = class Util {
     constructor(client) {
@@ -51,17 +51,17 @@ module.exports = class Util {
             .join(" ");
     }
 
-    // handleError(err, message) {
-    //     console.log(err);
-    //     message.channel.send(
-    //         new MessageEmbed()
-    //             .setColor("RED")
-    //             .setTitle("ERROR!")
-    //             .setDescription(
-    //                 `\`\`\`js\n${err.message}\n\`\`\`\nPlease run the \`support\` command and report this error!`,
-    //             ),
-    //     );
-    // }
+    handleError(err, message) {
+        console.log(err);
+        message.channel.send(
+            new MessageEmbed()
+                .setColor("RED")
+                .setTitle("ERROR!")
+                .setDescription(
+                    `\`\`\`js\n${err.message}\n\`\`\`\nPlease run the \`support\` command and report this error!`
+                )
+        );
+    }
 
     async loadCommands() {
         return glob(`${this.directory}commands/**/*.js`).then((commands) => {
@@ -71,12 +71,12 @@ module.exports = class Util {
                 const File = require(commandFile);
                 if (!this.isClass(File))
                     throw new TypeError(
-                        `Command ${name} doesn't export a class.`,
+                        `Command ${name} doesn't export a class.`
                     );
                 const command = new File(this.client, name.toLowerCase());
                 if (!(command instanceof Command))
                     throw new TypeError(
-                        `Command ${name} doesn't belong in the commands folder`,
+                        `Command ${name} doesn't belong in the commands folder`
                     );
                 this.client.commands.set(command.name, command);
                 if (command.aliases.length) {
@@ -91,28 +91,22 @@ module.exports = class Util {
 
     async loadEvents() {
         return glob(`${this.directory}events/**/*.js`).then((events) => {
-            console.log(events);
             for (const eventFile of events) {
-                console.log(eventFile);
                 delete require.cache[eventFile];
                 const { name } = path.parse(eventFile);
-                console.log(name);
                 const File = require(eventFile);
-                console.log(File);
                 if (!this.isClass(File))
                     throw new TypeError(
-                        `Event ${name} doesn't export a class!`,
+                        `Event ${name} doesn't export a class!`
                     );
                 const event = new File(this.client, name);
-                console.log(event);
                 if (!(event instanceof Event))
                     throw new TypeError(
-                        `Event ${name} doesn't belong in the events folder`,
+                        `Event ${name} doesn't belong in Events`
                     );
                 this.client.events.set(event.name, event);
-                console.log(this.client.events);
                 event.emitter[event.type](name, (...args) =>
-                    event.run(...args),
+                    event.run(...args)
                 );
                 this.client.logger.log("event", `Event ${name} loaded`);
             }
