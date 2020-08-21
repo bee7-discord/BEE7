@@ -21,7 +21,9 @@ module.exports = class extends Command {
     // eslint-disable-next-line no-unused-vars
     async run(message, args) {
         try {
-            const msg = await message.channel.send(this.client.emoji.loading.toString());
+            const msg = await message.channel.send(
+                this.client.emoji.loading.toString()
+            );
 
             const member = message.mentions.members.first() || message.member;
 
@@ -33,8 +35,9 @@ module.exports = class extends Command {
             );
 
             await message.channel.send(
-                new MessageAttachment(image, "deepfry.png")
+                new MessageAttachment(image,"""deepfry.png")
             );
+            
             msg.delete();
         } catch (err) {
             this.client.utils.handleError(err, message);
