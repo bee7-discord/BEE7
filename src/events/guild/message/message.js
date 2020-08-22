@@ -45,15 +45,17 @@ module.exports = class extends Event {
         // #region Permission Check
         if (
             command.permission &&
-            !this.client.owners.includes(message.author.id)
+            !this.client.owners.includes(message.author.id) &&
+            command.permission !== "No permission required"
         ) {
             if (!message.member.permissions.has(command.permission)) {
                 message.channel.send(
                     new MessageEmbed()
                         .setTitle("🔐 Permission Denied 🔐")
                         .setDescription(
-                            `${message.author.tag} you need the ${command.permission} permission to access that command!`
+                            `${message.author.tag} you need the \`${command.permission}\` permission to access that command!`
                         )
+                        .setColor(this.client.colors.error)
                 );
                 return;
             }

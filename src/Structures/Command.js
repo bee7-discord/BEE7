@@ -6,6 +6,7 @@ module.exports = class Command {
         this.description = options.description || "No description provided.";
         this.category = options.category || "Miscellaneous";
         this.usage = options.usage || "No usage provided.";
+        this.permission = options.permission || "No permission required";
     }
 
     // eslint-disable-next-line no-unused-vars

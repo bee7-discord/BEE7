@@ -44,6 +44,11 @@ module.exports = class Util {
         return [...new Set(arr)];
     }
 
+    /**
+     *
+     * @param {String} string - The string to capitalize
+     */
+
     capitalise(string) {
         return string
             .split(" ")

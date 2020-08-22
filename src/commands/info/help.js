@@ -50,7 +50,8 @@ module.exports = class extends Command {
                     cmd.aliases.length
                         ? cmd.aliases.map((alias) => `\`${alias}\``).join(" ")
                         : "None"
-                }`
+                }`,
+                `**Permission Required:** ${cmd.permission}`
             ]);
 
             return message.channel.send(embed);
