@@ -59,7 +59,7 @@ module.exports = class extends Command {
             embed.setDescription([
                 `These are the available commands for ${message.guild.name}`,
                 `The bot's prefix is: ${prefix}`,
-                `Command Parameters: \`<>\` is strict & \`[]\` is optional`
+                "Command Parameters: `<>` is strict & `[]` is optional"
             ]);
 
             let categories;

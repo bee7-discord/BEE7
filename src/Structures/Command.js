@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { Permissions } = require("discord.js");
 const BEE7Client = require("./BEE7Client");
 

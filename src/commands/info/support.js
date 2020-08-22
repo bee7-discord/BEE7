@@ -22,7 +22,7 @@ module.exports = class extends Command {
     async run(message, args) {
         try {
             message.channel.send(
-                `**Join this server to report bugs and/or suggest new features for the bot!**\nhttps://discord.gg/AunkyAe`
+                "**Join this server to report bugs and/or suggest new features for the bot!**\nhttps://discord.gg/AunkyAe"
             );
         } catch (err) {
             this.client.utils.handleError(err, message);

@@ -31,7 +31,7 @@ module.exports = class extends Command {
 
             if (!user) {
                 return message.channel.send(
-                    `You did not mention a user or provide a id!`
+                    "You did not mention a user or provide a id!"
                 );
             }
 
@@ -61,7 +61,7 @@ module.exports = class extends Command {
             // If there is no user, return a message
             // If there is no reason, return message
             if (!args.slice(1).join(" ")) {
-                return message.channel.send(`You must provide a reason!`);
+                return message.channel.send("You must provide a reason!");
             }
 
             // Find one entry in the warns database, where the guild id is the message guild id and the user id is the user id of the person getting warned

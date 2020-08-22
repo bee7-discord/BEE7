@@ -29,7 +29,7 @@ module.exports = class extends Command {
                 message.guild.members.cache.get(args[0]);
 
             if (!user) {
-                return message.channel.send(`Please **mention** a user!`);
+                return message.channel.send("Please **mention** a user!");
             }
             // Find the warns of the user, and map it into a embed
             warns.find(

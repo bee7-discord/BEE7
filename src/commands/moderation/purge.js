@@ -1,3 +1,4 @@
+/* eslint-disable no-inner-declarations */
 const Command = require("../../Structures/Command");
 // eslint-disable-next-line no-unused-vars
 const { Message, MessageEmbed } = require("discord.js");
@@ -32,7 +33,7 @@ module.exports = class extends Command {
 
             let purgedembed = message.channel.send(
                 new MessageEmbed()
-                    .setTitle(`**Purged**`)
+                    .setTitle("**Purged**")
                     .setDescription(`Deleted ${args[0]} messages.`)
                     .setColor(this.client.colors.success)
             );

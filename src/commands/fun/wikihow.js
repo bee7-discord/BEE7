@@ -26,8 +26,8 @@ module.exports = class extends Command {
                     .setTitle(res.article.title)
                     .setURL(res.article.link)
                     .setImage(res.url)
-                    .setFooter(`Powered by api.ksoft.si`)
-                    .setColor(`#2f3136`);
+                    .setFooter("Powered by api.ksoft.si")
+                    .setColor("#2f3136");
                 message.channel.send(embed);
             });
         } catch (err) {

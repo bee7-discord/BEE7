@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { MessageEmbed } = require("discord.js");
 
 const ZWS = "\u200B";
@@ -29,7 +30,7 @@ module.exports = class BEE7Embed extends MessageEmbed {
                 this.fields.push({
                     name: title,
                     value: content,
-                    inline: false,
+                    inline: false
                 });
                 return this;
             }

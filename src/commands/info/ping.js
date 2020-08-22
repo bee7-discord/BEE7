@@ -24,7 +24,7 @@ module.exports = class extends Command {
             // If you don't know how this works then idk honestly
             const msg = await message.channel.send("🏓 Pinging...");
             const Embed = new MessageEmbed()
-                .setTitle(`🏓 Pong! 🏓`)
+                .setTitle("🏓 Pong! 🏓")
                 .setDescription(
                     `Heartbeat is ${Math.floor(
                         msg.createdTimestamp -

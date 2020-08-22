@@ -65,7 +65,7 @@ module.exports = class extends Command {
                     member.user.displayAvatarURL({ dynamic: true, size: 512 })
                 )
                 .setColor(member.displayHexColor || "#2f3136")
-                .addField(`User`, [
+                .addField("User", [
                     `**Username:** ${member.user.username}`,
                     `**Discriminator:** ${member.user.discriminator}`,
                     `**ID:** ${member.id}`,
@@ -79,7 +79,7 @@ module.exports = class extends Command {
                     )})`,
                     `**Time Created:** ${moment(
                         member.user.createdTimestamp
-                    ).format(`LT`)} ${moment(
+                    ).format("LT")} ${moment(
                         member.user.createdTimestamp
                     ).format("LL")}, ${moment(
                         member.user.createdTimestamp
@@ -89,22 +89,22 @@ module.exports = class extends Command {
                         member.user.presence.game ||
                         "Not currently playing a game"
                     }`,
-                    `\u200b`
+                    "\u200b"
                 ])
-                .addField(`Member`, [
+                .addField("Member", [
                     `**Highest Role:** ${
                         member.roles.highest.id === message.guild.id
                             ? "None"
                             : member.roles.highest.name
                     }`,
                     `**Server Join Date:** ${moment(member.joinedAt).format(
-                        `LL LTS`
+                        "LL LTS"
                     )}`,
                     `**Hoist Role:** ${
                         member.roles.hoist ? member.roles.hoist.name : "None"
                     }`,
                     `**Roles [${roles.length}]:** ${roles.join(", ")}`,
-                    `\u200b`
+                    "\u200b"
                 ]);
             message.channel.send(embed);
         } catch (err) {

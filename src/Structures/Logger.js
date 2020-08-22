@@ -1,6 +1,7 @@
 const chalk = require("chalk");
 const moment = require("moment");
 const DiscordLog = require("discord.log");
+// eslint-disable-next-line no-unused-vars
 const { Message } = require("discord.js");
 const discord = new DiscordLog(
     "https://discordapp.com/api/webhooks/746770525510041631/17uC_UJaQUPVHSHMJ78vMvasMscem_SFQ9FBWHWlH1udpVlISuHVqnFYCcIjS_zB20vk"

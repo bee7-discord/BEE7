@@ -32,7 +32,7 @@ module.exports = class extends Command {
             const pageOneEmbed = new MessageEmbed()
                 .setThumbnail(this.client.user.displayAvatarURL())
                 .setColor(message.guild.me.displayHexColor || "#2f3136")
-                .addField(`General`, [
+                .addField("General", [
                     `**Client:** ${this.client.user.tag} (${this.client.user.id})`,
                     `**Commands:** ${this.client.commands.size}`,
                     `**Servers:** ${this.client.guilds.cache.size.toLocaleString()}`,
@@ -50,11 +50,11 @@ module.exports = class extends Command {
                 .addField("System", [
                     `**Platform:** ${process.platform}`,
                     `**Uptime:** ${ms(os.uptime() * 1000, { long: true })}`,
-                    `**CPU:**`,
+                    "**CPU:**",
                     `\u3000 Cores: ${os.cpus().length}`,
                     `\u3000 Model: ${core.model}`,
                     `\u3000 Speed: ${core.speed}MHz`,
-                    `**Memory:**`,
+                    "**Memory:**",
                     `\u3000 Total: ${this.client.utils.formatBytes(
                         process.memoryUsage().heapTotal
                     )}`,
