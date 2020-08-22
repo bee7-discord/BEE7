@@ -22,7 +22,6 @@ module.exports = class extends Command {
     // eslint-disable-next-line no-unused-vars
     async run(message, ...banner) {
         try {
-            console.log(banner);
             if (!banner[0].length)
                 return message.channel.send("Please provide some text");
 
