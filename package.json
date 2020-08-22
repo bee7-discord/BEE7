@@ -4,7 +4,7 @@
     "description": "Rewrite of the Discord Bot BEE7",
     "main": "src/index",
     "scripts": {
-        "start": "node src/index",
+        "start": "node src/index.js",
         "dev": "nodemon src/index"
     },
     "keywords": [
@@ -27,6 +27,7 @@
         "common-tags": "^1.8.0",
         "discord-paginate": "^1.0.2",
         "discord.js": "^12.3.1",
+        "discord.log": "^1.0.4",
         "erlpack": "github:discordapp/erlpack",
         "glob": "^7.1.6",
         "moment": "^2.27.0",

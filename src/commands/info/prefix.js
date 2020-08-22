@@ -42,7 +42,7 @@ module.exports = class extends Command {
                 { prefix: args[0] }
             );
 
-            this.client.prefixes[message.guild.id] === args[0];
+            this.client.prefixes[message.guild.id] = args[0];
 
             message.channel.send(`The prefix was set to \`${args[0]}\``);
         } catch (err) {

@@ -62,5 +62,6 @@ module.exports = class extends Event {
 
         // If there is a command, run it
         command.run(message, args);
+        this.client.logger.log(null, null, message);
     }
 };

@@ -9,6 +9,7 @@ const alexclient = new client();
 const canvacord = require("canvacord");
 const emojis = require("../../config/emojis.json");
 const prefixSchema = require("../models/prefix");
+const colors = require("../../config/colors.json");
 
 module.exports = class BEE7Client extends Client {
     constructor(options = {}) {
@@ -28,6 +29,7 @@ module.exports = class BEE7Client extends Client {
         this.emoji = emojis;
         this.owners = ["444655632424108032"];
         this.prefixes = new Array();
+        this.colors = colors;
 
         (async () => {
             const data = await prefixSchema.find({});
