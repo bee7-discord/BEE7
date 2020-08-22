@@ -22,6 +22,27 @@ module.exports = class extends Command {
     // eslint-disable-next-line no-unused-vars
     async run(message, args) {
         try {
+            // Get the user
+            const user =
+                message.guild.members.cache.get(args[0]) ||
+                message.mentions.members.first();
+            // If no user return a message
+
+            if (!user) {
+                return message.channel.send("Bruh specify a person");
+            }
+            // Set the nickname
+
+            await user
+                .setNickname(args.slice(1).join(" "))
+                .catch((err) => this.client.utils.handleError(err, message));
+
+            // Return a message saying nickname was changed
+            return message.channel.send(
+                `**${user.user.username}'s** nick changed to **${args
+                    .slice(1)
+                    .join(" ")}**`
+            );
         } catch (err) {
             this.client.utils.handleError(err, message);
         }
