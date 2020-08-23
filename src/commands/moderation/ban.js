@@ -22,6 +22,15 @@ module.exports = class extends Command {
     // eslint-disable-next-line no-unused-vars
     async run(message, args) {
         try {
+            if (!args[0])
+                return message.channel.send(
+                    new MessageEmbed()
+                        .setColor(this.client.colors.error)
+                        .setDescription(
+                            `${this.client.emoji.error.toString()} Please mention someone or provide a user id!`
+                        )
+                );
+
             const user =
                 message.mentions.members.first() ||
                 message.guild.members.cache.get(args[0]);
@@ -31,7 +40,7 @@ module.exports = class extends Command {
                     new MessageEmbed()
                         .setColor(this.client.colors.error)
                         .setDescription(
-                            `${this.client.emoji.error.toString()} Please mention someone or provide a user id!`
+                            `${this.client.emoji.error.toString()} I couldn't find that user!`
                         )
                 );
 
