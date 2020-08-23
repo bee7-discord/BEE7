@@ -1,7 +1,13 @@
 const Event = require("../../../Structures/Event");
-const { MessageEmbed } = require("discord.js");
+// eslint-disable-next-line no-unused-vars
+const { MessageEmbed, Message } = require("discord.js");
 
 module.exports = class extends Event {
+    /**
+     *
+     * @param {Message} message - The Message
+     */
+
     async run(message) {
         // Mention regex
         const mentionRegex = RegExp(`^<@!${this.client.user.id}>$`);
@@ -51,6 +57,7 @@ module.exports = class extends Event {
             if (!message.member.permissions.has(command.permission)) {
                 message.channel.send(
                     new MessageEmbed()
+                        .setAuthor("Error ", message.author.displayAvatarURL())
                         .setTitle("🔐 Permission Denied 🔐")
                         .setDescription(
                             `${message.author.tag} you need the \`${command.permission}\` permission to access that command!`
