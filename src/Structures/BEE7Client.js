@@ -30,6 +30,7 @@ module.exports = class BEE7Client extends Client {
         this.owners = ["444655632424108032"];
         this.prefixes = new Array();
         this.colors = colors;
+        this.snipes = new Map();
 
         (async () => {
             const data = await prefixSchema.find({});
