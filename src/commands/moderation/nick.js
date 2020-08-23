@@ -1,6 +1,6 @@
 const Command = require("../../Structures/Command");
 // eslint-disable-next-line no-unused-vars
-const { Message } = require("discord.js");
+const { Message, MessageEmbed } = require("discord.js");
 
 module.exports = class extends Command {
     constructor(...args) {
@@ -22,26 +22,57 @@ module.exports = class extends Command {
     // eslint-disable-next-line no-unused-vars
     async run(message, args) {
         try {
+            if (!args[0]) {
+                return message.channel.send(
+                    new MessageEmbed()
+                        .setColor(this.client.colors.error)
+                        .setDescription(
+                            `${this.client.emoji.error} Please provide either a user mention or id!`
+                        )
+                );
+            }
+
             // Get the user
             const user =
                 message.guild.members.cache.get(args[0]) ||
                 message.mentions.members.first();
-            // If no user return a message
 
-            if (!user) {
-                return message.channel.send("Bruh specify a person");
+            if (!user)
+                return message.channel.send(
+                    new MessageEmbed()
+                        .setColor(this.client.colors.error)
+                        .setDescription(
+                            `${this.client.emoji.error} I couldn't find that user!`
+                        )
+                );
+
+            if (!args[1]) {
+                await user.setNickname(user.user.username).catch((err) => {
+                    return this.client.utils.handleError(err, message);
+                });
+                return message.channel.send(
+                    new MessageEmbed()
+                        .setColor(this.client.colors.success)
+                        .setDescription(
+                            `${this.client.emoji.success} Reset ${user.user.username}'s nickname!`
+                        )
+                );
             }
-            // Set the nickname
 
-            await user
-                .setNickname(args.slice(1).join(" "))
-                .catch((err) => this.client.utils.handleError(err, message));
+            // Set the nickname
+            await user.setNickname(args.slice(1).join(" ")).catch((err) => {
+                return this.client.utils.handleError(err, message);
+            });
 
             // Return a message saying nickname was changed
-            return message.channel.send(
-                `**${user.user.username}'s** nick changed to **${args
-                    .slice(1)
-                    .join(" ")}**`
+            message.channel.send(
+                new MessageEmbed()
+                    .setColor(this.client.colors.success)
+                    .setDescription(
+                        `${this.client.emoji.success} Set **${
+                            user.user.username
+                        }'s** nickname to **${args.slice(1).join(" ")}**`
+                    )
             );
         } catch (err) {
             this.client.utils.handleError(err, message);
