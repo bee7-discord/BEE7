@@ -39,7 +39,6 @@
         "ms": "^2.1.2",
         "path": "^0.12.7",
         "pretty-error": "^2.1.1",
-        "shoukaku": "^1.4.2",
         "utf-8-validate": "^5.0.2",
         "util": "^0.12.3",
         "vultrex.haste": "^1.0.1",
