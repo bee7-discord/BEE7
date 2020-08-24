@@ -41,8 +41,5 @@
         "util": "^0.12.3",
         "vultrex.haste": "^1.0.1",
         "zlib-sync": "^0.1.7"
-    },
-    "jshintConfig": {
-        "esversion": "8"
     }
 }
