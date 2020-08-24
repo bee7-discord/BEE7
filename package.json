@@ -22,7 +22,6 @@
         "@discordjs/opus": "^0.3.2",
         "@ksoft/api": "^3.1.9",
         "alexflipnote.js": "^1.2.3",
-        "bufferutil": "^4.0.1",
         "canvacord": "^4.0.0",
         "chalk": "^4.1.0",
         "common-tags": "^1.8.0",
@@ -30,8 +29,6 @@
         "discord-player": "^2.3.1",
         "discord.js": "^12.3.1",
         "discord.log": "^1.0.4",
-        "erlpack": "github:discordapp/erlpack",
-        "figlet": "^1.5.0",
         "glob": "^7.1.6",
         "humanize-duration": "^3.23.1",
         "moment": "^2.27.0",
@@ -39,9 +36,6 @@
         "ms": "^2.1.2",
         "path": "^0.12.7",
         "pretty-error": "^2.1.1",
-        "utf-8-validate": "^5.0.2",
-        "util": "^0.12.3",
-        "vultrex.haste": "^1.0.1",
-        "zlib-sync": "^0.1.7"
+        "vultrex.haste": "^1.0.1"
     }
 }
