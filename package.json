@@ -19,6 +19,7 @@
         "eslint-config-tesseract": "0.0.3"
     },
     "dependencies": {
+        "@discordjs/opus": "^0.3.2",
         "@ksoft/api": "^3.1.9",
         "alexflipnote.js": "^1.2.3",
         "bufferutil": "^4.0.1",
@@ -26,6 +27,7 @@
         "chalk": "^4.1.0",
         "common-tags": "^1.8.0",
         "discord-paginate": "^1.0.2",
+        "discord-player": "^2.3.1",
         "discord.js": "^12.3.1",
         "discord.log": "^1.0.4",
         "erlpack": "github:discordapp/erlpack",
@@ -37,6 +39,7 @@
         "ms": "^2.1.2",
         "path": "^0.12.7",
         "pretty-error": "^2.1.1",
+        "shoukaku": "^1.4.2",
         "utf-8-validate": "^5.0.2",
         "util": "^0.12.3",
         "vultrex.haste": "^1.0.1",

@@ -4,8 +4,14 @@ const glob = promisify(require("glob"));
 const Command = require("./Command.js");
 const Event = require("./Event.js");
 const { MessageEmbed } = require("discord.js");
+// eslint-disable-next-line no-unused-vars
+const BEE7Client = require("./BEE7Client.js");
 
 module.exports = class Util {
+    /**
+     *
+     * @param {BEE7Client} client - Client
+     */
     constructor(client) {
         this.client = client;
     }

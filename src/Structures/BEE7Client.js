@@ -18,6 +18,10 @@ module.exports = class BEE7Client extends Client {
         });
         this.validate(options);
 
+        // Needs to be here otherwise it says "client.on is not a function"
+        const { Player } = require("discord-player");
+        const player = new Player(this);
+
         this.commands = new Collection();
         this.aliases = new Collection();
         this.events = new Collection();
@@ -31,6 +35,7 @@ module.exports = class BEE7Client extends Client {
         this.prefixes = new Array();
         this.colors = colors;
         this.snipes = new Map();
+        this.player = player;
 
         (async () => {
             const data = await prefixSchema.find({});
