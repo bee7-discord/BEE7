@@ -13,6 +13,7 @@ module.exports = class Command {
      * @param {String} options.category - Category of the command
      * @param {String} options.usage - Usage of the command
      * @param {Permissions} options.permission - Permission of the command
+     * @param {Number} options.cooldown - (Optional) The cooldown of the command in milliseconds
      */
     constructor(client, name, options = {}) {
         this.client = client;
@@ -22,6 +23,7 @@ module.exports = class Command {
         this.category = options.category || "Miscellaneous";
         this.usage = options.usage || "No usage provided.";
         this.permission = options.permission || "No permission required";
+        this.cooldown = options.cooldown || 0;
     }
 
     // eslint-disable-next-line no-unused-vars

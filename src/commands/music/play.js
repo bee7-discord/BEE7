@@ -7,8 +7,8 @@ module.exports = class extends Command {
         super(...args, {
             name: "play",
             description: "Play some music",
-            usage: "Music",
-            category: "play <song name or URL>"
+            category: "Music",
+            usage: "play <song name or URL>"
         });
     }
 
@@ -22,100 +22,122 @@ module.exports = class extends Command {
     async run(message, args) {
         try {
             // Search for tracks
-            let tracks = await this.client.player.searchTracks(args[0], true);
+            if (!message.member.voice.channel)
+                return message.channel.send({
+                    embed: {
+                        color: this.client.colors.error,
+                        description: `${this.client.emoji.error} | You must be in a voice channel to play!`
+                    }
+                });
 
-            // Sends an embed with the 10 first songs
-            if (tracks.length > 5) tracks = tracks.slice(0, 5);
-            const embed = new MessageEmbed()
-                .setDescription(
-                    tracks.map((t, i) => `**${i + 1} -** ${t.name}`).join("\n")
-                )
-                .setFooter("Send the number of the track you want to play!")
-                .setColor(this.client.colors.transparent);
+            if (
+                message.guild.me.voice.channel &&
+                message.member.voice.channel.id !==
+                    message.guild.me.voice.channel.id
+            )
+                return message.channel.send({
+                    embed: {
+                        color: this.client.colors.error,
+                        description: `${this.client.emoji.error} | You are not in my voice channel!`
+                    }
+                });
 
-            message.channel.send(embed);
-            // Wait for user answer
-            await message.channel
-                .awaitMessages((m) => m.content > 0 && m.content < 6, {
-                    max: 1,
-                    time: 20000,
-                    errors: ["time"]
-                })
-                .then(async (answers) => {
-                    const index = parseInt(answers.first().content, 5);
-                    let track = tracks[index - 1];
+            let tracks = args.join(" ");
 
-                    if (this.client.player.isPlaying(message.guild.id)) {
-                        // Add the song to the queue
-                        let song = await this.client.player.addToQueue(
-                            message.guild.id,
-                            track,
-                            message.member.user.tag
-                        );
-                        return message.channel.send({
-                            embed: {
-                                color: this.client.colors.success,
-                                description: `${
-                                    this.client.emoji.success
-                                } | ${Util.escapeMarkdown(
-                                    song.name
-                                )} by ${Util.escapeMarkdown(
-                                    song.author
-                                )}  Added to the queue!`
-                            }
-                        });
-                    } else {
-                        // Else, play the song
-                        let song = await this.client.player.play(
-                            message.member.voice.channel,
-                            track,
-                            message.member.user.tag
-                        );
-                        message.channel.send({
-                            embed: {
-                                color: this.client.colors.success,
-                                description: `${this.client.emoji.music} | Now Playing:\n${song.name}`
-                            }
-                        });
-                        console.log(song);
-                        this.client.player
-                            .getQueue(message.guild.id)
-                            .on("end", () => {
+            if (!tracks)
+                return message.channel.send({
+                    embed: {
+                        color: this.client.colors.error,
+                        description: `${this.client.emoji.error} | Please enter a query to search!`
+                    }
+                });
+
+            const searchTracks = await this.client.player
+                .searchTracks(tracks)
+                .catch(() => {
+                    return message.channel.send({
+                        embed: {
+                            color: this.client.colors.error,
+                            description: `${this.client.emoji.error} | No results found!`
+                        }
+                    });
+                });
+
+            if (searchTracks.length < 1)
+                return message.channel.send({
+                    embed: {
+                        color: this.client.colors.error,
+                        description: `${this.client.emoji.error} | No results found!`
+                    }
+                });
+
+            let track = searchTracks[0];
+
+            if (this.client.player.isPlaying(message.guild.id)) {
+                // Add the song to the queue
+                let song = await this.client.player.addToQueue(
+                    message.guild.id,
+                    track,
+                    message.member.user.tag
+                );
+                return message.channel.send({
+                    embed: {
+                        color: this.client.colors.success,
+                        description: `${
+                            this.client.emoji.success
+                        } | ${Util.escapeMarkdown(
+                            song.name
+                        )} by ${Util.escapeMarkdown(
+                            song.author
+                        )}  added to the queue!`
+                    }
+                });
+            } else {
+                // Else, play the song
+                let song = await this.client.player.play(
+                    message.member.voice.channel,
+                    track,
+                    message.member.user.tag
+                );
+                message.channel.send({
+                    embed: {
+                        color: this.client.colors.success,
+                        description: `${this.client.emoji.music} | Now Playing:\n${song.name}`
+                    }
+                });
+                this.client.player.getQueue(message.guild.id).on("end", () => {
+                    message.channel.send({
+                        embed: {
+                            color: this.client.colors.success,
+                            description:
+                                "Queue completed, add some more songs to play!"
+                        }
+                    });
+                });
+
+                this.client.player
+                    .getQueue(message.guild.id)
+                    .on(
+                        "trackChanged",
+                        (oldSong, newSong, skipped, repeatMode) => {
+                            if (repeatMode) {
                                 message.channel.send({
                                     embed: {
                                         color: this.client.colors.success,
-                                        description:
-                                            "Queue completed, add some more songs to play!"
+                                        description: `${this.client.emoji.repeat} | Repeating:\n ${oldSong.name}`
                                     }
                                 });
-                            });
-
-                        this.client.player
-                            .getQueue(message.guild.id)
-                            .on(
-                                "trackChanged",
-                                (oldSong, newSong, skipped, repeatMode) => {
-                                    if (repeatMode) {
-                                        message.channel.send({
-                                            embed: {
-                                                color: this.client.colors
-                                                    .success,
-                                                description: `${this.client.emoji.repeat} | Repeating:\n ${oldSong.name}`
-                                            }
-                                        });
-                                    } else {
-                                        message.channel.send({
-                                            embed: {
-                                                color: this.client.colors
-                                                    .success,
-                                                description: `${this.client.emoji.music} | Now Playing:\n ${newSong.name}`
-                                            }
-                                        });
+                            } else {
+                                message.channel.send({
+                                    embed: {
+                                        color: this.client.colors.success,
+                                        description: `${this.client.emoji.music} | Now Playing:\n ${newSong.name}`
                                     }
-                                }
-                            );
-                    }
-                });
+                                });
+                            }
+                        }
+                    );
+            }
         } catch (err) {
             this.client.utils.handleError(err, message);
         }

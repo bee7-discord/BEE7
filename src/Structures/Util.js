@@ -106,6 +106,7 @@ module.exports = class Util {
                 delete require.cache[eventFile];
                 const { name } = path.parse(eventFile);
                 const File = require(eventFile);
+                if (name === "cooldown") return;
                 if (!this.isClass(File))
                     throw new TypeError(
                         `Event ${name} doesn't export a class!`

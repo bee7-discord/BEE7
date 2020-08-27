@@ -1,6 +1,9 @@
 const Event = require("../../../Structures/Event");
 // eslint-disable-next-line no-unused-vars
 const { MessageEmbed, Message } = require("discord.js");
+const humanizeDuration = require("humanize-duration");
+const ms = require("ms");
+const Timeout = new Map();
 
 module.exports = class extends Event {
     /**
@@ -69,8 +72,57 @@ module.exports = class extends Event {
         }
         // #endregion Permission Check
 
-        // If there is a command, run it
-        command.run(message, args);
+        //#region Cooldown
+
+        // Cooldown and run the command
         this.client.logger.log(null, null, message);
+        if (command.timeout === 0) return command.run(message, args);
+
+        const key = message.author.id + command.name;
+        const found = Timeout.get(key);
+        const timeout = command.cooldown;
+
+        // If the person is on cooldown then display that information
+        if (found) {
+            const timePassed = Date.now() - found;
+            const timeLeft = timeout - timePassed;
+
+            if (command.timeoutMsg) {
+                const timeoutMessage = command.timeoutMsg.replace(
+                    "{time}",
+                    humanizeDuration(timeLeft, { round: true })
+                );
+
+                const slowdownEmbed = new MessageEmbed()
+                    .setTitle("Slow down!")
+                    .setDescription(timeoutMessage)
+                    .setColor("#C40000")
+                    .setFooter("Cooldown system made by JJNotLiveS#1053");
+                return message.channel.send(slowdownEmbed);
+            }
+
+            const slowdownEmbed = new MessageEmbed()
+                .setTitle("Slow down!")
+                .setDescription(
+                    `You can use this command again in **${humanizeDuration(
+                        timeLeft,
+                        { round: true }
+                    )}**.The default cooldown for this command is \`${ms(
+                        timeout
+                    )}\`.`
+                )
+                .setColor("#C40000")
+                .setFooter("Cooldown system made byJJNotLiveS#1053");
+            return message.channel.send(slowdownEmbed);
+            // else run the command and add them to the cooldown
+        } else {
+            command.run(message, args);
+            Timeout.set(key, Date.now());
+
+            setTimeout(() => {
+                Timeout.delete(key);
+            }, command.cooldown);
+        }
+        //#endregion Cooldown
     }
 };

@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const BEE7Client = require("./BEE7Client");
 
 module.exports = class Event {
