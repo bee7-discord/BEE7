@@ -7,5 +7,6 @@
     "repeat": "🔁",
     "pause": "⏸️",
     "resume": "⏯️",
-    "stop": "⏹️"
+    "stop": "⏹️",
+    "playing": "<a:playing:748578660025368696>"
 }
