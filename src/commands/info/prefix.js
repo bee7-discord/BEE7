@@ -37,9 +37,19 @@ module.exports = class extends Command {
                 );
             }
 
-            await prefixSchema.findOneAndUpdate(
+            await prefixSchema.findOne(
                 { guildId: message.guild.id },
-                { prefix: args[0] }
+                async (err, res) => {
+                    if (!res) {
+                        const newData = await prefixSchema.create({
+                            guildId: message.guild.id,
+                            prefix: args[0]
+                        });
+                        return newData.save();
+                    }
+                    res.prefix = args[0];
+                    res.save();
+                }
             );
 
             this.client.prefixes[message.guild.id] = args[0];
