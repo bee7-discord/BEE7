@@ -5,9 +5,9 @@ const { Message } = require("discord.js");
 module.exports = class extends Command {
     constructor(...args) {
         super(...args, {
-            name: "accidents",
-            description: "Play the accidents sound effect",
-            usage: "accidents",
+            name: "choking",
+            description: "Play the choking sound effect",
+            usage: "choking",
             category: "Soundboard"
         });
     }
@@ -28,10 +28,10 @@ module.exports = class extends Command {
 
             channel.join().then((connection) => {
                 const dispatcher = connection.play(
-                    `${process.cwd()}/soundboard_sounds/accidents-happen.mp3`
+                    `${process.cwd()}/soundboard_sounds/are-you-choking.mp3`
                 );
                 message.channel.send(
-                    `${this.client.emoji.playing} | Now playing the accidents happen sound effect in voice channel \`${connection.channel.name}\``
+                    `${this.client.emoji.playing} | Now playing the choking sound effect in voice channel \`${connection.channel.name}\``
                 );
 
                 dispatcher.on("speaking", (speaking) => {
