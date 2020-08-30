@@ -62,10 +62,14 @@ module.exports = class extends Command {
             const embed = new MessageEmbed()
                 // Generate and send a really nice embed
                 .setThumbnail(
-                    member.user.displayAvatarURL({ dynamic: true, size: 512 })
+                    member.user.displayAvatarURL({ dynamic: true, size: 4096 })
                 )
-                .setColor(member.displayHexColor || "#2f3136")
-                .addField("User", [
+                .setColor(
+                    member.displayHexColor !== "#000000"
+                        ? member.displayHexColor
+                        : this.client.colors.transparent
+                )
+                .addField("__User__", [
                     `**Username:** ${member.user.username}`,
                     `**Discriminator:** ${member.user.discriminator}`,
                     `**ID:** ${member.id}`,
@@ -91,7 +95,7 @@ module.exports = class extends Command {
                     }`,
                     "\u200b"
                 ])
-                .addField("Member", [
+                .addField("__Member__", [
                     `**Highest Role:** ${
                         member.roles.highest.id === message.guild.id
                             ? "None"
@@ -103,7 +107,9 @@ module.exports = class extends Command {
                     `**Hoist Role:** ${
                         member.roles.hoist ? member.roles.hoist.name : "None"
                     }`,
-                    `**Roles [${roles.length}]:** ${roles.join(", ")}`,
+                    `**Roles [${roles.length}]:** ${
+                        roles.length !== 0 ? roles.join(", ") : "No roles"
+                    }`,
                     "\u200b"
                 ]);
             message.channel.send(embed);

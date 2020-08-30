@@ -29,7 +29,6 @@ module.exports = class extends Event {
 
         const data = await prefixSchema.find({});
         data.forEach((guild) => {
-            console.log(guild);
             this.client.prefixes[guild.guildId] = guild.prefix;
         });
 

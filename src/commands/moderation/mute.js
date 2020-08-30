@@ -11,7 +11,7 @@ module.exports = class extends Command {
             description: "Mute a user",
             usage: "mute <user mention or id> <time> <reason>",
             category: "Moderation",
-            permission: ""
+            permission: "MANAGE_MESSAGES"
         });
     }
 
@@ -39,7 +39,7 @@ module.exports = class extends Command {
 
             // if the muted user exists
             if (muted) {
-                // check if the user about to me muted has kick and ban permissions, and if the message author has admin permissions
+                // check if the user about to me muted has kick and ban permissions
                 if (muted.hasPermission(["KICK_MEMBERS", "BAN_MEMBERS"])) {
                     message.channel.send(
                         new MessageEmbed()
