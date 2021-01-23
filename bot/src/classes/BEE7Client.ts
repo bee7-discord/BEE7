@@ -103,10 +103,12 @@ export default class BEE7Client extends AkairoClient {
                 const embed = new MessageEmbed()
                     .setAuthor(`Here are your search results for ${query}!`)
                     .setDescription(
-                        tracks.map(
-                            (t, i) =>
-                                `${i + 1}. ${Util.escapeMarkdown(t.title)}`
-                        )
+                        tracks
+                            .slice(0, 5)
+                            .map(
+                                (t, i) =>
+                                    `${i + 1}. ${Util.escapeMarkdown(t.title)}`
+                            )
                     )
                     .setColor(this.config.transparentColor)
                     .setFooter("Send the number of the song you want to play!");
