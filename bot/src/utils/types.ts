@@ -4,7 +4,6 @@ export interface BotOptions {
     prefix: string;
     devMode: boolean;
     mongoURI?: string;
-    nodes: Array<any>;
 }
 
 export interface PublicConfig {
