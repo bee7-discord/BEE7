@@ -18,6 +18,7 @@ export default class PrefixCommand extends CustomCommand {
                     "config leveling false"
                 ]
             },
+            userPermissions: ["MANAGE_GUILD"],
             ratelimit: 2,
             args: [
                 {
