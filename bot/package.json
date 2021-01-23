@@ -1,0 +1,31 @@
+{
+    "name": "bee7",
+    "version": "1.0.0",
+    "description": "An amazing discord bot",
+    "main": "src/Bot.ts",
+    "scripts": {
+        "dev": "ts-node-dev src/Bot.ts",
+        "lavalink": "java -jar lavalink/Lavalink.jar",
+        "start": "ts-node src/Bot.ts"
+    },
+    "author": "Beatzoid",
+    "license": "ISC",
+    "dependencies": {
+        "@discordjs/opus": "^0.3.3",
+        "common-tags": "^1.8.0",
+        "dayjs": "^1.10.4",
+        "discord-akairo": "1Computer1/discord-akairo",
+        "discord-paginationembed": "^2.1.0",
+        "discord-player": "Androz2091/discord-player",
+        "discord.js": "discordjs/discord.js",
+        "mongoose": "^5.11.13",
+        "ts-node": "^9.1.1",
+        "winston": "^3.3.3"
+    },
+    "devDependencies": {
+        "@types/common-tags": "^1.8.0",
+        "@types/node": "^14.14.22",
+        "ts-node-dev": "^1.1.1",
+        "typescript": "^4.1.3"
+    }
+}
