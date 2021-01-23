@@ -17,6 +17,7 @@ declare module "discord-akairo" {
         listenerHandler: ListenerHandler;
         config: PublicConfig;
         player: Player;
+        botConfig: BotOptions;
     }
 }
 

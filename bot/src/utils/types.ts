@@ -4,6 +4,7 @@ export interface BotOptions {
     prefix: string;
     devMode: boolean;
     mongoURI?: string;
+    snowflakeApiKey: string;
 }
 
 export interface PublicConfig {
