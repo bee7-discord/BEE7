@@ -315,11 +315,6 @@ combined-stream@^1.0.8:
   dependencies:
     delayed-stream "~1.0.0"
 
-common-tags@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/common-tags/-/common-tags-1.8.0.tgz#8e3153e542d4a39e9b10554434afaaf98956a937"
-  integrity sha512-6P6g0uetGpW/sdyUy/iQQCbFF0kWVMSIVSyYz7Zgjcgh8mgw8PQzDNZeyZ5DQ2gM7LBoZPHmnjz8rUthkBG5tw==
-
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
@@ -464,7 +459,6 @@ discord-ytdl-core@^5.0.0:
 
 discord.js@discordjs/discord.js:
   version "12.5.0"
-  uid f95f5dcd791b39c6a4d60dc8d64b0287e06ed768
   resolved "https://codeload.github.com/discordjs/discord.js/tar.gz/f95f5dcd791b39c6a4d60dc8d64b0287e06ed768"
   dependencies:
     "@discordjs/collection" "^0.1.6"
