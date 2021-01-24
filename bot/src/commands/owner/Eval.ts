@@ -70,6 +70,8 @@ export default class EvalCommand extends CustomCommand {
         { code }: { code: string }
     ): Promise<Message> {
         try {
+            if (!code)
+                return message.channel.send("Provide some code to eval!");
             const evaled = eval(code);
             const clean = await this.clean(this.client, evaled);
 

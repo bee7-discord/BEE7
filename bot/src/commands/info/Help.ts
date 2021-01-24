@@ -81,6 +81,7 @@ export default class HelpCommand extends CustomCommand {
                 );
 
             for (const category of this.handler.categories.values()) {
+                if (category.id.toLowerCase() === "owner") continue;
                 embed.addField(
                     `❯ ${category.id.replace(/(\b\w)/gi, (lc) =>
                         lc.toUpperCase()
