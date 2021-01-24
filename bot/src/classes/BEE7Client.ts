@@ -9,6 +9,7 @@ import logger from "../utils/logger";
 import { PublicConfig, BotOptions } from "../utils/types";
 import { Player } from "discord-player";
 import { MessageEmbed } from "discord.js";
+import Utils from "./Util";
 import { Util } from "discord.js";
 
 declare module "discord-akairo" {
@@ -18,6 +19,7 @@ declare module "discord-akairo" {
         config: PublicConfig;
         player: Player;
         botConfig: BotOptions;
+        utils: Utils;
     }
 }
 
@@ -26,6 +28,7 @@ export default class BEE7Client extends AkairoClient {
     public config: PublicConfig;
     public logger: Logger = logger;
     public player = new Player(this);
+    public utils: Utils = new Utils();
 
     public listenerHandler: ListenerHandler = new ListenerHandler(this, {
         directory: join(__dirname, "..", "events")

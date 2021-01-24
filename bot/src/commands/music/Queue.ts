@@ -18,18 +18,25 @@ export default class QueueCommand extends CustomCommand {
         });
     }
 
-    public exec(message: Message): Promise<Message> {
+    public async exec(message: Message): Promise<Message> {
+        const queue = this.client.player.getQueue(message);
+
         const voice = message.member.voice.channel;
+
+        if (!queue) {
+            message.channel.send("No music currently playing!");
+        }
+
         if (!voice) {
-            return message.channel.send(
-                "You must be connected to a voice channel for this command to work!"
+            message.channel.send(
+                "You must be in a voice channel to use this command!"
             );
         }
 
-        const queue = this.client.player.getQueue(message);
-
-        if (!queue) {
-            return message.channel.send("No music currently playing!");
+        if (voice.id !== queue.voiceConnection.channel.id) {
+            message.channel.send(
+                "You must be in the same voice channel as me!"
+            );
         }
 
         if (queue.tracks.length === 1) {

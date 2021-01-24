@@ -26,10 +26,18 @@ export default class PlayCommand extends CustomCommand {
         });
     }
 
-    public exec(
+    public async exec(
         message: Message,
         { song }: { song: string }
     ): Promise<Message> {
+        const voice = message.member.voice.channel;
+
+        if (!voice) {
+            message.channel.send(
+                "You must be in a voice channel to use this command!"
+            );
+        }
+
         if (!song)
             return message.channel.send(
                 "You must specify a song for me to play!"

@@ -15,23 +15,23 @@ export default class StopCommand extends CustomCommand {
         });
     }
 
-    public exec(message: Message): Promise<Message> {
+    public async exec(message: Message): Promise<Message> {
         const queue = this.client.player.getQueue(message);
 
         const voice = message.member.voice.channel;
 
         if (!queue) {
-            return message.channel.send("No music currently playing!");
+            message.channel.send("No music currently playing!");
         }
 
         if (!voice) {
-            return message.channel.send(
-                "You must be in a voice channel to pause music!"
+            message.channel.send(
+                "You must be in a voice channel to use this command!"
             );
         }
 
         if (voice.id !== queue.voiceConnection.channel.id) {
-            return message.channel.send(
+            message.channel.send(
                 "You must be in the same voice channel as me!"
             );
         }

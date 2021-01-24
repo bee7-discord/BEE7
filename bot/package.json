@@ -19,7 +19,8 @@
         "discord.js": "discordjs/discord.js",
         "mongoose": "^5.11.13",
         "ts-node": "^9.1.1",
-        "winston": "^3.3.3"
+        "winston": "^3.3.3",
+        "youtube-sr": "DevSnowflake/youtube-sr"
     },
     "devDependencies": {
         "@types/common-tags": "^1.8.0",

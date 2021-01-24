@@ -1,7 +1,6 @@
 import { MessageEmbed } from "discord.js";
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
-import { convertTime } from "../../utils/utils";
 
 export default class BotInfoCommand extends CustomCommand {
     public constructor() {
@@ -41,8 +40,16 @@ export default class BotInfoCommand extends CustomCommand {
                     '[Invite](https://discord.com/api/oauth2/authorize?client_id=802019866525696050&permissions=8&scope=bot "Click it")',
                     true
                 )
-                .addField("Uptime", convertTime(this.client.uptime), true)
-                .setFooter("The user count excludes bots")
+                .addField(
+                    "Voice Connections",
+                    this.client.player.queues.size,
+                    true
+                )
+                .setFooter(
+                    `The user count excludes bots | Uptime: ${this.client.utils.convertTime(
+                        this.client.uptime
+                    )}`
+                )
                 .setColor(this.client.config.transparentColor)
         );
     }
