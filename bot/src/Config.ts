@@ -7,8 +7,6 @@ export const Config: BotOptions = {
     // DO NOT SET THIS TO FALSE UNLESS YOU ARE RUNNING IT ON THE VPS
     // I DO NOT WANT TO HAVE TO CLEAN UP THE PRODUCTION DATABASE
     devMode: true,
-    mongoURI:
-        "mongodb+srv://Beatzoid:PhZWzKB3BRrQnvmX@bee7.1vebl.mongodb.net/data?retryWrites=true&w=majority",
     snowflakeApiKey:
         "NDQ0NjU1NjMyNDI0MTA4MDMy.MTYwNzU1ODc2MC4yMzQ=.ce8161a129dd949a784e8e8d723d057c"
 };

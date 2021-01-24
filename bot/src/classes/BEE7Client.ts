@@ -201,8 +201,8 @@ export default class BEE7Client extends AkairoClient {
         mongoose
             .connect(
                 Config.devMode
-                    ? "mongodb://127.0.0.1:27017/BEE7"
-                    : Config.mongoURI,
+                    ? "mongodb://127.0.0.1:27017/BEE7-dev"
+                    : "mongodb://127.0.0.1:27017/BEE7",
                 {
                     useNewUrlParser: true,
                     useUnifiedTopology: true,

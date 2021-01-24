@@ -12,6 +12,7 @@
     "license": "ISC",
     "dependencies": {
         "@discordjs/opus": "^0.3.3",
+        "axios": "^0.21.1",
         "dayjs": "^1.10.4",
         "discord-akairo": "1Computer1/discord-akairo",
         "discord-paginationembed": "^2.1.0",

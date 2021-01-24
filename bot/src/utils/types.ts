@@ -3,7 +3,6 @@ export interface BotOptions {
     owners: string | string[];
     prefix: string;
     devMode: boolean;
-    mongoURI?: string;
     snowflakeApiKey: string;
 }
 

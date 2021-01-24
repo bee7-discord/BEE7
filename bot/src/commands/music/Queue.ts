@@ -46,6 +46,9 @@ export default class QueueCommand extends CustomCommand {
                 .addField(
                     "Currently Playing",
                     `[${queue.tracks[0].title}](${queue.tracks[0].url})\n*Requested by ${queue.tracks[0].requestedBy}*\n`
+                )
+                .setFooter(
+                    "To remove the currently playing song from the queue, run `remove 0`"
                 );
             return message.channel.send(embed);
         }
@@ -62,6 +65,9 @@ export default class QueueCommand extends CustomCommand {
             .addField(
                 "Currently Playing",
                 `[${queue.tracks[0].title}](${queue.tracks[0].url})\n*Requested by ${queue.tracks[0].requestedBy}*\n`
+            )
+            .setFooter(
+                "To remove the currently playing song from the queue, run `remove 0`"
             );
 
         FieldEmbed.setArray(

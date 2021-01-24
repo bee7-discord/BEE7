@@ -1,6 +1,6 @@
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
-import fetch from "node-fetch";
+import axios from "axios";
 
 export default class EvalCommand extends CustomCommand {
     public constructor() {
@@ -31,13 +31,12 @@ export default class EvalCommand extends CustomCommand {
                 depth: 1
             });
 
-        let data = await fetch("https://api.snowflakedev.xyz/api/token", {
+        let data = await axios.get("https://api.snowflakedev.xyz/api/token", {
             headers: {
                 Authorization: this.client.botConfig.snowflakeApiKey
             }
         });
-        data = await data.json();
-        const token = (data as any).token;
+        const token = (data as any).data.token;
 
         text = text
             .replace(/`/g, "`" + String.fromCharCode(8203))
