@@ -18,7 +18,12 @@ export default class PrefixCommand extends CustomCommand {
                     "config leveling false"
                 ]
             },
-            userPermissions: ["MANAGE_GUILD"],
+            userPermissions: (msg: Message) => {
+                if (!msg.member.permissions.has("MANAGE_GUILD"))
+                    return msg.channel.send(
+                        "You need the `Manage Server` permission to run this command"
+                    );
+            },
             ratelimit: 2,
             args: [
                 {
