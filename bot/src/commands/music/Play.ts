@@ -33,7 +33,7 @@ export default class PlayCommand extends CustomCommand {
         const voice = message.member.voice.channel;
 
         if (!voice) {
-            message.channel.send(
+            return message.channel.send(
                 "You must be in a voice channel to use this command!"
             );
         }

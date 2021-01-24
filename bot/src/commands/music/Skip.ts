@@ -22,17 +22,17 @@ export default class SkipCommand extends CustomCommand {
         const voice = message.member.voice.channel;
 
         if (!queue) {
-            message.channel.send("No music currently playing!");
+            return message.channel.send("No music currently playing!");
         }
 
         if (!voice) {
-            message.channel.send(
+            return message.channel.send(
                 "You must be in a voice channel to use this command!"
             );
         }
 
         if (voice.id !== queue.voiceConnection.channel.id) {
-            message.channel.send(
+            return message.channel.send(
                 "You must be in the same voice channel as me!"
             );
         }
