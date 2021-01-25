@@ -1,5 +1,5 @@
 export default class Util {
-    public convertTime(duration: number) {
+    public convertTime(duration: number): string {
         const portions: string[] = [];
 
         const msInHour = 1000 * 60 * 60;
@@ -22,5 +22,17 @@ export default class Util {
         }
 
         return portions.join(" ");
+    }
+
+    getBoolean(value: string): boolean {
+        switch (value.trim()) {
+            case "true":
+            case "1":
+            case "on":
+            case "yes":
+                return true;
+            default:
+                return false;
+        }
     }
 }

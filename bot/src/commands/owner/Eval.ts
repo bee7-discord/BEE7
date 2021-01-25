@@ -72,7 +72,8 @@ export default class EvalCommand extends CustomCommand {
         try {
             if (!code)
                 return message.channel.send("Provide some code to eval!");
-            const evaled = eval(code);
+
+            const evaled = eval(`(async () => {${code}})();`);
             const clean = await this.clean(this.client, evaled);
 
             if (clean.length > 800)

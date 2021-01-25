@@ -8,4 +8,5 @@ export interface BotOptions {
 
 export interface PublicConfig {
     transparentColor: string;
+    emojis: any;
 }

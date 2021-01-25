@@ -11,6 +11,7 @@ import { Player } from "discord-player";
 import { MessageEmbed } from "discord.js";
 import Utils from "./Util";
 import { Util } from "discord.js";
+import { VACEFronJS } from "vacefron";
 
 declare module "discord-akairo" {
     interface AkairoClient {
@@ -20,6 +21,7 @@ declare module "discord-akairo" {
         player: Player;
         botConfig: BotOptions;
         utils: Utils;
+        vacefron: VACEFronJS;
     }
 }
 
@@ -29,6 +31,7 @@ export default class BEE7Client extends AkairoClient {
     public logger: Logger = logger;
     public player = new Player(this);
     public utils: Utils = new Utils();
+    public vacefron = new VACEFronJS();
 
     public listenerHandler: ListenerHandler = new ListenerHandler(this, {
         directory: join(__dirname, "..", "events")

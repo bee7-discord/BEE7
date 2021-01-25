@@ -12,5 +12,8 @@ export const Config: BotOptions = {
 };
 
 export const PublicConfig: PubConfig = {
-    transparentColor: "#2F3136"
+    transparentColor: "#2F3136",
+    emojis: {
+        loadingEmoji: "<a:loading:746197909401239552>"
+    }
 };
