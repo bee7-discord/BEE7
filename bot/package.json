@@ -22,7 +22,7 @@
         "ts-node": "^9.1.1",
         "vacefron": "^3.4.0",
         "winston": "^3.3.3",
-        "youtube-sr": "DevSnowflake/youtube-sr"
+        "youtube-sr": "^3.0.0"
     },
     "devDependencies": {
         "@types/common-tags": "^1.8.0",
