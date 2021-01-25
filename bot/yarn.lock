@@ -1712,16 +1712,17 @@ yn@3.1.1:
   resolved "https://registry.yarnpkg.com/yn/-/yn-3.1.1.tgz#1e87401a09d767c1d5eab26a6e4c185182d2eb50"
   integrity sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 
-youtube-sr@DevSnowflake/youtube-sr:
-  version "3.0.0"
-  resolved "https://codeload.github.com/DevSnowflake/youtube-sr/tar.gz/500bf1d7dc3e092b0c4883e5bb847641c6ffc1f6"
-  dependencies:
-    node-fetch "^2.6.1"
-
 youtube-sr@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/youtube-sr/-/youtube-sr-2.0.5.tgz#b6379f30f51912b05c5f472b3047feb82ad70e85"
   integrity sha512-46aBX3ZCPa9zgZz1HsoeyZnFbBSUmwPYjxZuwcKRGDPCzaj9StBa6UUSnPAr39NTqULbeHGAkMpMRInL4x2+Rg==
+  dependencies:
+    node-fetch "^2.6.1"
+
+youtube-sr@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/youtube-sr/-/youtube-sr-3.0.0.tgz#98dcca5baf24559aa06d86c1347fd154b91effa4"
+  integrity sha512-ie3uCR2Ew/BWvMZ2MyQal+fQcgAlFq0E2wOrkdWqFYXiGVndwEjNNVZEjRmjpibOJam8l6B5nmp8ndfkGyGfCA==
   dependencies:
     node-fetch "^2.6.1"
 
