@@ -12,6 +12,10 @@ After getting approved to make a pull request, do the following:
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
+## Make sure to add credit to yourself in the command!
+
+I want everyone to get the credit they deserve. If you don't, I will literally not merge the pull request until you add credit somewhere.
+
 # Is there a specific commit style I should use?
 
 Yes, use [this](https://gitmoji.dev) website and the format is `<Emoji> <Short description of feature added>`.
