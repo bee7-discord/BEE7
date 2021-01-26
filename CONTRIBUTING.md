@@ -12,8 +12,14 @@ After getting approved to make a pull request, do the following:
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
+# Is there a specific commit style I should use?
+
+Yes, use [this](https://gitmoji.dev) website and the format is `<Emoji> <Short description of feature added>`.
+
 # How do I make new commands?
+
 Use this template:
+
 ```ts
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
@@ -34,7 +40,7 @@ export default class CmdNameCommand extends CustomCommand {
     }
 
     public exec(message: Message): Promise<Message> {
-         // Some amazing code here
+        // Some amazing code here
     }
 }
 ```
