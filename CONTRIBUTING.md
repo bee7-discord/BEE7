@@ -12,6 +12,33 @@ After getting approved to make a pull request, do the following:
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
+# How do I make new commands?
+Use this template:
+```ts
+import { Message } from "discord.js";
+import { CustomCommand } from "../../classes/Command";
+
+export default class CmdNameCommand extends CustomCommand {
+    public constructor() {
+        super("cmdname", {
+            // THE FIRST ELEMENT MUST BE THE EXACT COMMAND NAME OTHERWISE IT WILL BREAK
+            aliases: ["cmdname"],
+            category: "category",
+            description: {
+                content: "Description",
+                usage: "usage",
+                examples: ["example"]
+            },
+            ratelimit: 3
+        });
+    }
+
+    public exec(message: Message): Promise<Message> {
+         // Some amazing code here
+    }
+}
+```
+
 # What should I include in the pull request?
 
 I have made a template for pull requests, please fill that out before submitting it. If there is anything else you think that is important, please add it.
