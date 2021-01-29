@@ -1,6 +1,5 @@
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
-import axios from "axios";
 
 export default class EvalCommand extends CustomCommand {
     public constructor() {
@@ -31,38 +30,12 @@ export default class EvalCommand extends CustomCommand {
                 depth: 1
             });
 
-        let data = await axios.get("https://api.snowflakedev.xyz/api/token", {
-            headers: {
-                Authorization: this.client.botConfig.snowflakeApiKey
-            }
-        });
-        const token = (data as any).data.token;
-
         text = text
             .replace(/`/g, "`" + String.fromCharCode(8203))
             .replace(/@/g, "@" + String.fromCharCode(8203))
-            .replace(client.token, token);
+            .replace(client.token, "[Redacted]");
 
         return text;
-    }
-
-    hastebin(input: any, extension?: any) {
-        return new Promise(function (res, rej) {
-            if (!input) rej("[Error] Missing Input");
-            fetch("https://hasteb.in/documents", {
-                method: "POST",
-                body: input
-            })
-                .then((res) => res.json())
-                .then((body) => {
-                    res(
-                        "https://hasteb.in/" +
-                            body.key +
-                            (extension ? "." + extension : "")
-                    );
-                })
-                .catch((e) => rej(e));
-        });
     }
 
     public async exec(
@@ -73,11 +46,12 @@ export default class EvalCommand extends CustomCommand {
             if (!code)
                 return message.channel.send("Provide some code to eval!");
 
-            const evaled = eval(`(async () => {${code}})();`);
+            // const evaled = eval(`(async () => {${code}})();`);
+            const evaled = eval(code);
             const clean = await this.clean(this.client, evaled);
 
             if (clean.length > 800)
-                return message.channel.send(await this.hastebin(clean));
+                return message.channel.send("Over 800 characters!");
             else return message.channel.send(`\`\`\`js\n${clean}\n\`\`\``);
         } catch (err) {
             return message.channel.send(
