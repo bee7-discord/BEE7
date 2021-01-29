@@ -35,4 +35,12 @@ export default class Util {
                 return false;
         }
     }
+
+    titleCase(convert: string): string {
+        return convert
+            .toLowerCase()
+            .split(" ")
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" ");
+    }
 }

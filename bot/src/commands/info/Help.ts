@@ -58,6 +58,19 @@ export default class HelpCommand extends CustomCommand {
                     `\`${command.aliases.slice(1).join("`, `")}\``
                 );
             }
+
+            if (command.userPermissions) {
+                embed.addField(
+                    "❯ Required Permissions",
+                    (command.userPermissions as any).map(
+                        (c: string) =>
+                            `\`${this.client.utils.titleCase(
+                                c.replace("_", " ")
+                            )}\``
+                    )
+                );
+            }
+
             if (
                 command.description.examples &&
                 command.description.examples.length
