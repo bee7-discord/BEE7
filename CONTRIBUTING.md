@@ -2,9 +2,7 @@ Firstly, thank you for being interested in contributing to BEE7! Please read the
 
 # Are you fixing a bug or submitting a pull request?
 
-Before doing so, submit a issue describing the changes/bug you want to add/fix before making a pull request. This is to prevent you spending a week on a feature, then having your pull request denied (If this does happen, sorry ♥!).
-
-After getting approved to make a pull request, do the following:
+Do the following:
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
