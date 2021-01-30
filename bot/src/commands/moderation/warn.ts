@@ -42,6 +42,11 @@ export default class PingCommand extends CustomCommand {
                 "Incorrect usage or unknown user! | `warn <member mention or id> <reason>`"
             );
 
+        if (member.bot)
+            return message.channel.send(
+                "You can't warn or check the warns of bots!"
+            );
+
         let existingWarns: any = await Warns.findOne({
             guildId: message.guild.id
         }).exec();
@@ -50,7 +55,7 @@ export default class PingCommand extends CustomCommand {
             existingWarns = await Warns.create({ guildId: message.guild.id });
 
         existingWarns.warns.push({
-            id: message.author.id,
+            id: member.id,
             reason,
             moderator: message.author.tag
         });
