@@ -55,9 +55,17 @@ export default class PingCommand extends CustomCommand {
             existingWarns = await Warns.create({ guildId: message.guild.id });
 
         existingWarns.warns.push({
-            id: member.id,
+            user: member.id,
             reason,
-            moderator: message.author.tag
+            moderator: message.author.tag,
+            id: "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+                /[xy]/g,
+                function (c) {
+                    var r = (Math.random() * 16) | 0,
+                        v = c == "x" ? r : (r & 0x3) | 0x8;
+                    return v.toString(16);
+                }
+            )
         });
         existingWarns.markModified("warns");
         await existingWarns.save();

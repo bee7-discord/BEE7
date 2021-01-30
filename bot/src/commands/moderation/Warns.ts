@@ -50,7 +50,7 @@ export default class PingCommand extends CustomCommand {
             existingWarns = await Warns.create({ guildId: message.guild.id });
 
         const userWarns = existingWarns.warns.filter(
-            (warn: any) => warn.id === member.id
+            (warn: any) => warn.user === member.id
         );
 
         if (!userWarns.length)
@@ -66,7 +66,7 @@ export default class PingCommand extends CustomCommand {
             .formatField(
                 "Warns",
                 (warn: any) =>
-                    `Moderator: ${warn.moderator}\nReason: ${warn.reason}\n`
+                    `ID: ${warn.id}\nModerator: ${warn.moderator}\nReason: ${warn.reason}\n`
             )
             .setDisabledNavigationEmojis(["delete"])
             .setPageIndicator(true);
