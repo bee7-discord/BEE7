@@ -29,7 +29,7 @@ jobs:
               run: npm install --global typescript
 
             - name: Install Dependencies
-              run: cd bot && yarn install --frozen-lockfile
+              run: cd bot && yarn install --immutable-cache
 
             - name: Compile Typescript
               run: cd bot && tsc
