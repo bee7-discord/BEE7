@@ -18,7 +18,7 @@
         "discord-paginationembed": "gazmull/discord-paginationembed",
         "discord-player": "Androz2091/discord-player",
         "discord.js": "discordjs/discord.js",
-        "mongoose": "^5.11.14",
+        "mongoose": "^5.11.15",
         "ts-node": "^9.1.1",
         "vacefron": "^3.4.0",
         "winston": "^3.3.3"
