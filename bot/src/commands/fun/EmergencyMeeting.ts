@@ -12,18 +12,18 @@ export default class CarReverseCommand extends CustomCommand {
                     "Generate a emergency meeting meme. Example: https://beatzoid.is-inside.me/ZKGxin3s.png",
                 usage: "emergencymeeting <text here>",
                 examples: [
-                    "emergencymeeting When you're friend is sad and you come up with a way to make him happy"
-                ]
+                    "emergencymeeting When you're friend is sad and you come up with a way to make him happy",
+                ],
             },
             args: [
                 {
                     id: "text",
                     type: "string",
                     match: "rest",
-                    default: null
-                }
+                    default: null,
+                },
             ],
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

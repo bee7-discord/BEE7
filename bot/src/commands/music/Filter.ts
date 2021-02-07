@@ -14,7 +14,7 @@ const FiltersList = {
     normalizer: "Normalizer",
     surrounding: "Surrounding",
     pulsator: "Pulsator",
-    superequalizer: "Superequalizer"
+    superequalizer: "Superequalizer",
 };
 
 export default class FilterCommand extends CustomCommand {
@@ -26,16 +26,16 @@ export default class FilterCommand extends CustomCommand {
                 content:
                     "Apply or remove a filter to the currently playing song",
                 usage: "filter",
-                examples: ["filter bassboost", "filter vaporwave"]
+                examples: ["filter bassboost", "filter vaporwave"],
             },
             args: [
                 {
                     id: "filter",
                     type: "string",
-                    default: null
-                }
+                    default: null,
+                },
             ],
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

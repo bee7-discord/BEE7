@@ -11,17 +11,17 @@ export default class CarReverseCommand extends CustomCommand {
                 content:
                     "Generate a car reverse meme. Example: https://beatzoid.is-inside.me/UvyPcbhm.png",
                 usage: "carreverse <text here>",
-                examples: ["carreverse You must pay to view this article"]
+                examples: ["carreverse You must pay to view this article"],
             },
             args: [
                 {
                     id: "text",
                     type: "string",
                     match: "rest",
-                    default: null
-                }
+                    default: null,
+                },
             ],
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

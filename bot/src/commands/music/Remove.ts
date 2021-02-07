@@ -9,14 +9,14 @@ export default class RemoveCommand extends CustomCommand {
             description: {
                 content: "Remove a song from the queue",
                 usage: "remove <number of song in queue>",
-                examples: ["remove 3", "remove 5"]
+                examples: ["remove 3", "remove 5"],
             },
             args: [
                 {
                     id: "track",
                     type: "string",
-                    default: null
-                }
+                    default: null,
+                },
             ],
             userPermissions: (msg: Message) => {
                 if (!msg.member.permissions.has("MANAGE_GUILD"))
@@ -24,7 +24,7 @@ export default class RemoveCommand extends CustomCommand {
                         "You need the `Manage Server` permission to run this command"
                     );
             },
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

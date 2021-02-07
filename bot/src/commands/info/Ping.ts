@@ -9,9 +9,9 @@ export default class PingCommand extends CustomCommand {
             description: {
                 content: "Check the current ping of the bot",
                 usage: "ping",
-                examples: ["ping"]
+                examples: ["ping"],
             },
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

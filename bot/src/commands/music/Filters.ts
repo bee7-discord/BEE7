@@ -15,7 +15,7 @@ const FiltersList = {
     normalizer: "Normalizer",
     surrounding: "Surrounding",
     pulsator: "Pulsator",
-    superequalizer: "Superequalizer"
+    superequalizer: "Superequalizer",
 };
 
 export default class PingCommand extends CustomCommand {
@@ -27,9 +27,9 @@ export default class PingCommand extends CustomCommand {
                 content:
                     "Get a list of filters you can use to filter the music",
                 usage: "ping",
-                examples: ["ping"]
+                examples: ["ping"],
             },
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

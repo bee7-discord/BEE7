@@ -10,9 +10,9 @@ export default class BotInfoCommand extends CustomCommand {
             description: {
                 content: "Get information about the bot",
                 usage: "botinfo",
-                examples: ["botinfo"]
+                examples: ["botinfo"],
             },
-            ratelimit: 4
+            ratelimit: 4,
         });
     }
 

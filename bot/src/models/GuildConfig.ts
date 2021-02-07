@@ -2,7 +2,7 @@ import { model, Schema } from "mongoose";
 
 const guildConfigSchema = new Schema({
     guildId: String,
-    settings: Object
+    settings: Object,
 });
 
 const guildConfigModel = model("Config", guildConfigSchema);

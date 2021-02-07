@@ -13,18 +13,18 @@ export default class PingCommand extends CustomCommand {
                 usage: "clearwarns <user id or mention>",
                 examples: [
                     "clearwarns <@444655632424108032>",
-                    "clearwarns 444655632424108032"
-                ]
+                    "clearwarns 444655632424108032",
+                ],
             },
             args: [
                 {
                     id: "member",
                     type: "user",
-                    default: null
-                }
+                    default: null,
+                },
             ],
             userPermissions: ["ADMINISTRATOR"],
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 
@@ -38,7 +38,7 @@ export default class PingCommand extends CustomCommand {
             );
 
         let existingWarns: any = await Warns.findOne({
-            guildId: message.guild.id
+            guildId: message.guild.id,
         }).exec();
 
         if (!existingWarns)

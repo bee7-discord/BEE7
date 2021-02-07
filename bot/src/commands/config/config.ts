@@ -15,8 +15,8 @@ export default class PrefixCommand extends CustomCommand {
                     "config prefix !",
                     "config levelingChannel #levels",
                     "config leveling off",
-                    "config leveling false"
-                ]
+                    "config leveling false",
+                ],
             },
             userPermissions: (msg: Message) => {
                 if (!msg.member.permissions.has("MANAGE_GUILD"))
@@ -29,14 +29,14 @@ export default class PrefixCommand extends CustomCommand {
                 {
                     id: "setting",
                     type: "string",
-                    default: null
+                    default: null,
                 },
                 {
                     id: "value",
                     type: "string",
-                    default: null
-                }
-            ]
+                    default: null,
+                },
+            ],
         });
     }
 
@@ -47,7 +47,7 @@ export default class PrefixCommand extends CustomCommand {
     ): Promise<Message> {
         // @ts-ignore
         const config: any = await GuildConfig.findOne({
-            guildId: message.guild.id
+            guildId: message.guild.id,
         });
 
         if (!setting) {

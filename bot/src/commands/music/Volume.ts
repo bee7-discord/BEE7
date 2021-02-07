@@ -9,16 +9,16 @@ export default class VolumeCommand extends CustomCommand {
             description: {
                 content: "Change the volume of the bot",
                 usage: "volume <new volume between 1-100>",
-                examples: ["volume 50", "volume 70"]
+                examples: ["volume 50", "volume 70"],
             },
             args: [
                 {
                     id: "volume",
                     type: "number",
-                    default: null
-                }
+                    default: null,
+                },
             ],
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

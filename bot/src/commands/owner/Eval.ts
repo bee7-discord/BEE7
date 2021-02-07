@@ -9,17 +9,17 @@ export default class EvalCommand extends CustomCommand {
             description: {
                 content: "Eval",
                 usage: "eval",
-                examples: ["eval"]
+                examples: ["eval"],
             },
             ownerOnly: true,
             args: [
                 {
                     id: "code",
                     type: "string",
-                    match: "rest"
-                }
+                    match: "rest",
+                },
             ],
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 
@@ -27,7 +27,7 @@ export default class EvalCommand extends CustomCommand {
         if (text && text.constructor.name == "Promise") text = await text;
         if (typeof text !== "string")
             text = require("util").inspect(text, {
-                depth: 1
+                depth: 1,
             });
 
         text = text

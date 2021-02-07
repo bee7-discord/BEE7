@@ -9,9 +9,9 @@ export default class PauseCommand extends CustomCommand {
             description: {
                 content: "Pause the current song",
                 usage: "pause",
-                examples: ["pause"]
+                examples: ["pause"],
             },
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

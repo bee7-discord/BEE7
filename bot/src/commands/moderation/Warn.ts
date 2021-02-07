@@ -13,23 +13,23 @@ export default class PingCommand extends CustomCommand {
                 usage: "warn <member mention or id> <reason>",
                 examples: [
                     "warn <@444655632424108032> Spamming",
-                    "warn 444655632424108032 Spamming"
-                ]
+                    "warn 444655632424108032 Spamming",
+                ],
             },
             args: [
                 {
                     id: "member",
                     type: "user",
-                    default: null
+                    default: null,
                 },
                 {
                     id: "reason",
                     type: "string",
-                    match: "rest"
-                }
+                    match: "rest",
+                },
             ],
             userPermissions: ["MANAGE_MESSAGES"],
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 
@@ -48,7 +48,7 @@ export default class PingCommand extends CustomCommand {
             );
 
         let existingWarns: any = await Warns.findOne({
-            guildId: message.guild.id
+            guildId: message.guild.id,
         }).exec();
 
         if (!existingWarns)
@@ -65,7 +65,7 @@ export default class PingCommand extends CustomCommand {
                         v = c == "x" ? r : (r & 0x3) | 0x8;
                     return v.toString(16);
                 }
-            )
+            ),
         });
         existingWarns.markModified("warns");
         await existingWarns.save();

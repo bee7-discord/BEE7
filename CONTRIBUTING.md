@@ -16,7 +16,7 @@ I want everyone to get the credit they deserve. If you don't, I will literally n
 
 # Is there a specific commit style I should use?
 
-Yes, use [this](https://gitmoji.dev) website and the format is `<Emoji> <Short description of feature added>`.
+Yes, we use `commit-lint` to verify commit messages. Example for adding a feature: `feat(NickCommand): add nickname command`. **The capitilization matters, it will not commit if you do not follow it**
 
 # How do I make new commands?
 
@@ -35,9 +35,9 @@ export default class CmdNameCommand extends CustomCommand {
             description: {
                 content: "Description",
                 usage: "usage",
-                examples: ["example"]
+                examples: ["example"],
             },
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

@@ -12,17 +12,17 @@ export default class ImposterCommand extends CustomCommand {
                     "Generate a npc meme. Make sure to separate the values with a | Example: https://beatzoid.is-inside.me/YD3IX20x.png",
                 usage: "npc <Gray Guy Text> <White Guy Text>",
                 examples: [
-                    "npc BEE7 is an amazing bot | Then why don't you add it to your server"
-                ]
+                    "npc BEE7 is an amazing bot | Then why don't you add it to your server",
+                ],
             },
             args: [
                 {
                     id: "text",
                     match: "rest",
-                    default: null
-                }
+                    default: null,
+                },
             ],
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

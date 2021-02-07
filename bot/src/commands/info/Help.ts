@@ -11,16 +11,16 @@ export default class HelpCommand extends CustomCommand {
             description: {
                 content: "Get a list of the bots commands",
                 usage: "help [command]",
-                examples: ["help botinfo", "help userinfo"]
+                examples: ["help botinfo", "help userinfo"],
             },
             ratelimit: 3,
             args: [
                 {
                     id: "command",
                     type: "commandAlias",
-                    default: null
-                }
-            ]
+                    default: null,
+                },
+            ],
         });
     }
 
@@ -29,7 +29,7 @@ export default class HelpCommand extends CustomCommand {
         { command }: { command: CustomCommand }
     ): Promise<Message> {
         const config: any = await GuildConfig.findOne({
-            guildId: message.guild.id
+            guildId: message.guild.id,
         });
         const embed = new MessageEmbed().setColor(
             this.client.config.transparentColor

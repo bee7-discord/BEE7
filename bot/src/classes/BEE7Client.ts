@@ -34,19 +34,19 @@ export default class BEE7Client extends AkairoClient {
     public vacefron = new VACEFronJS();
 
     public listenerHandler: ListenerHandler = new ListenerHandler(this, {
-        directory: join(__dirname, "..", "events")
+        directory: join(__dirname, "..", "events"),
     });
     public commandHandler: CommandHandler = new CommandHandler(this, {
         directory: join(__dirname, "..", "commands"),
         prefix: async (msg: Message) => {
             if (msg.guild) {
                 const config: any = await GuildConfig.findOne({
-                    guildId: msg.guild.id
+                    guildId: msg.guild.id,
                 }).exec();
                 if (!config) {
                     await GuildConfig.create({
                         guildId: msg.guild.id,
-                        settings: { prefix: Config.prefix }
+                        settings: { prefix: Config.prefix },
                     });
                     return Config.prefix;
                 }
@@ -72,17 +72,17 @@ export default class BEE7Client extends AkairoClient {
                     "You exceeded the maximum amount of tries, this command has been cancelled",
                 cancel: "This command has been cancelled",
                 retries: 3,
-                time: 3e4
+                time: 3e4,
             },
-            otherwise: ""
+            otherwise: "",
         },
-        ignorePermissions: Config.owners
+        ignorePermissions: Config.owners,
     });
 
     public constructor(botConfig: BotOptions, config: PublicConfig) {
         super({
             ownerID: botConfig.owners,
-            ws: { intents: Intents.ALL }
+            ws: { intents: Intents.ALL },
         });
 
         this.botConfig = botConfig;
@@ -195,7 +195,7 @@ export default class BEE7Client extends AkairoClient {
         this.listenerHandler.setEmitters({
             commandHandler: this.commandHandler,
             listenerHandler: this.listenerHandler,
-            process
+            process,
         });
 
         this.commandHandler.loadAll();
@@ -209,7 +209,7 @@ export default class BEE7Client extends AkairoClient {
                 {
                     useNewUrlParser: true,
                     useUnifiedTopology: true,
-                    useFindAndModify: true
+                    useFindAndModify: true,
                 }
             )
             .then(() => this.logger.info("MongoDB Connected!"))

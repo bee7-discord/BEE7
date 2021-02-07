@@ -12,9 +12,9 @@ export default class QueueCommand extends CustomCommand {
             description: {
                 content: "Get the queue of the current server",
                 usage: "queue",
-                examples: ["queue"]
+                examples: ["queue"],
             },
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

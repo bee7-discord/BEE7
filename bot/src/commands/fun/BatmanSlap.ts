@@ -13,17 +13,17 @@ export default class batmanslapCommand extends CustomCommand {
                 usage:
                     "batmanslap <Robin's Text> | <Batman's Text> | <User mention or id for Robin's face>",
                 examples: [
-                    "batmanslap You are now breathing manually | NO! | <@671892057840943134>"
-                ]
+                    "batmanslap You are now breathing manually | NO! | <@671892057840943134>",
+                ],
             },
             args: [
                 {
                     id: "text",
                     match: "rest",
-                    default: null
-                }
+                    default: null,
+                },
             ],
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

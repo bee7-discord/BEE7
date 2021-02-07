@@ -11,9 +11,9 @@ export default class SkipCommand extends CustomCommand {
             description: {
                 content: "Skip the currently playing song",
                 usage: "skip",
-                examples: ["skip"]
+                examples: ["skip"],
             },
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 
@@ -71,7 +71,7 @@ export default class SkipCommand extends CustomCommand {
             };
 
             const collector = m.createReactionCollector(filter, {
-                time: 25000
+                time: 25000,
             });
 
             collector.on("collect", (reaction) => {

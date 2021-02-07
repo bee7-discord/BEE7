@@ -12,16 +12,16 @@ export default class ImposterCommand extends CustomCommand {
                     "Generate a imposter meme. Make sure to separate the values with a | Example: https://beatzoid.is-inside.me/ToSX7Sxv.png",
                 usage:
                     "imposter <Name of user being ejected> | <Whether or not they were imposter> | [Color of crewmate]",
-                examples: ["imposter Beatzoid | true | Red"]
+                examples: ["imposter Beatzoid | true | Red"],
             },
             args: [
                 {
                     id: "text",
                     match: "rest",
-                    default: null
-                }
+                    default: null,
+                },
             ],
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

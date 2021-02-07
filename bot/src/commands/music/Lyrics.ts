@@ -9,9 +9,9 @@ export default class LyricsCommand extends CustomCommand {
             description: {
                 content: "Get the lyrics of the currently playing song",
                 usage: "lyrics",
-                examples: ["lyrics"]
+                examples: ["lyrics"],
             },
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

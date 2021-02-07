@@ -11,16 +11,16 @@ export default class PingCommand extends CustomCommand {
             description: {
                 content: "Get info about a specific npm package on npm",
                 usage: "npm <package name>",
-                examples: ["npm canvacord"]
+                examples: ["npm canvacord"],
             },
             args: [
                 {
                     id: "query",
                     type: "string",
-                    match: "rest"
-                }
+                    match: "rest",
+                },
             ],
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 
@@ -38,8 +38,8 @@ export default class PingCommand extends CustomCommand {
                 `https://api.snowflakedev.xyz/api/registry/npm?module=${query}`,
                 {
                     headers: {
-                        Authorization: this.client.botConfig.snowflakeApiKey
-                    }
+                        Authorization: this.client.botConfig.snowflakeApiKey,
+                    },
                 }
             )
             .then(async (res) => {

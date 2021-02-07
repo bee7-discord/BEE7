@@ -6,7 +6,7 @@ export default class ReadyEvent extends CustomListener {
         super("message", {
             emitter: "client",
             event: "message",
-            category: "client"
+            category: "client",
         });
     }
 

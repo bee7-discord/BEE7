@@ -9,9 +9,9 @@ export default class ResumeCommand extends CustomCommand {
             description: {
                 content: "Resume the current song",
                 usage: "Resume",
-                examples: ["resume"]
+                examples: ["resume"],
             },
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

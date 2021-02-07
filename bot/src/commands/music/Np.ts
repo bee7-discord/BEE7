@@ -10,9 +10,9 @@ export default class NowPlayingCommand extends CustomCommand {
             description: {
                 content: "Get the currently playing song",
                 usage: "nowplaying",
-                examples: ["nowplaying", "np"]
+                examples: ["nowplaying", "np"],
             },
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 
@@ -62,7 +62,7 @@ export default class NowPlayingCommand extends CustomCommand {
             .addField(
                 "\u200B",
                 this.client.player.createProgressBar(message, {
-                    timecodes: true
+                    timecodes: true,
                 })
             )
             .setTimestamp()

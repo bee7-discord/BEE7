@@ -14,9 +14,9 @@ export default class PingCommand extends CustomCommand {
             description: {
                 content: "Get info about the current server",
                 usage: "serverinfo",
-                examples: ["serverinfo"]
+                examples: ["serverinfo"],
             },
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

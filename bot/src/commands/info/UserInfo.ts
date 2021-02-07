@@ -12,8 +12,8 @@ export default class UserInfoCommand extends CustomCommand {
                 usage: "ui [user mention or id]",
                 examples: [
                     "userinfo <@444655632424108032>",
-                    "userinfo 444655632424108032"
-                ]
+                    "userinfo 444655632424108032",
+                ],
             },
             ratelimit: 3,
             args: [
@@ -21,9 +21,9 @@ export default class UserInfoCommand extends CustomCommand {
                     id: "member",
                     type: "member",
                     match: "rest",
-                    default: (msg: Message) => msg.member
-                }
-            ]
+                    default: (msg: Message) => msg.member,
+                },
+            ],
         });
     }
 

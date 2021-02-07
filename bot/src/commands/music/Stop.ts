@@ -9,9 +9,9 @@ export default class StopCommand extends CustomCommand {
             description: {
                 content: "Stop the currently playing music",
                 usage: "stop",
-                examples: ["stop"]
+                examples: ["stop"],
             },
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 

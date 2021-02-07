@@ -10,16 +10,16 @@ export default class PingCommand extends CustomCommand {
             description: {
                 content: "Delete a users warn",
                 usage: "delwarn <Warn Id>",
-                examples: ["delwarn"]
+                examples: ["delwarn"],
             },
             args: [
                 {
                     id: "id",
-                    type: "string"
-                }
+                    type: "string",
+                },
             ],
             ratelimit: 3,
-            userPermissions: ["MANAGE_MESSAGES"]
+            userPermissions: ["MANAGE_MESSAGES"],
         });
     }
 
@@ -28,7 +28,7 @@ export default class PingCommand extends CustomCommand {
         { id }: { id: string }
     ): Promise<Message> {
         const warns: any = await Warns.findOne({
-            guildId: message.guild.id
+            guildId: message.guild.id,
         });
 
         const warn = warns.warns.filter((warn: any) => warn.id === id);

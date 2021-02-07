@@ -11,18 +11,18 @@ export default class PlayCommand extends CustomCommand {
                 usage: "play <song name or URL>",
                 examples: [
                     "play Wish I knew you",
-                    "play https://www.youtube.com/watch?v=j5a0jTc9S10"
-                ]
+                    "play https://www.youtube.com/watch?v=j5a0jTc9S10",
+                ],
             },
             args: [
                 {
                     id: "song",
                     type: "string",
                     match: "rest",
-                    default: null
-                }
+                    default: null,
+                },
             ],
-            ratelimit: 3
+            ratelimit: 3,
         });
     }
 
