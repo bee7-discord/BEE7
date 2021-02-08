@@ -54,7 +54,7 @@ export default class PingCommand extends CustomCommand {
             );
         }
 
-        const filtersStatuses: any = [[], []];
+        const filtersStatuses: Array<any> = [[], []];
 
         Object.keys(FiltersList).forEach((filterName) => {
             const array =

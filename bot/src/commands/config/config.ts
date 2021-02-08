@@ -2,6 +2,7 @@ import { MessageEmbed } from "discord.js";
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
 import GuildConfig from "../../models/GuildConfig";
+import { GuildConfigType } from "../../utils/types";
 
 export default class PrefixCommand extends CustomCommand {
     public constructor() {
@@ -42,13 +43,11 @@ export default class PrefixCommand extends CustomCommand {
 
     public async exec(
         message: Message,
-        // @ts-ignore
         { setting, value }: { setting: string; value: string }
     ): Promise<Message> {
-        // @ts-ignore
-        const config: any = await GuildConfig.findOne({
+        const config = (await GuildConfig.findOne({
             guildId: message.guild.id,
-        });
+        })) as GuildConfigType;
 
         if (!setting) {
             const embed = new MessageEmbed()

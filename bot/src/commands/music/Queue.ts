@@ -3,6 +3,7 @@ import { CustomCommand } from "../../classes/Command";
 import { FieldsEmbed } from "discord-paginationembed";
 import { MessageEmbed } from "discord.js";
 import { TextChannel } from "discord.js";
+import { Track } from "discord-player";
 
 export default class QueueCommand extends CustomCommand {
     public constructor() {
@@ -79,7 +80,7 @@ export default class QueueCommand extends CustomCommand {
             .setPageIndicator(true)
             .formatField(
                 "Queue",
-                (track: any) =>
+                (track: Track) =>
                     `${++i}. [${track.title}](${track.url})\n*Requested by ${
                         track.requestedBy
                     }*\n`

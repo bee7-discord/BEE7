@@ -6,7 +6,7 @@ import { Logger } from "winston";
 import { Config } from "../Config";
 import GuildConfig from "../models/GuildConfig";
 import logger from "../utils/logger";
-import { PublicConfig, BotOptions } from "../utils/types";
+import { PublicConfig, BotOptions, GuildConfigType } from "../utils/types";
 import { Player } from "discord-player";
 import { MessageEmbed } from "discord.js";
 import Utils from "./Util";
@@ -40,9 +40,10 @@ export default class BEE7Client extends AkairoClient {
         directory: join(__dirname, "..", "commands"),
         prefix: async (msg: Message) => {
             if (msg.guild) {
-                const config: any = await GuildConfig.findOne({
+                const config = (await GuildConfig.findOne({
                     guildId: msg.guild.id,
-                }).exec();
+                }).exec()) as GuildConfigType;
+
                 if (!config) {
                     await GuildConfig.create({
                         guildId: msg.guild.id,
@@ -50,6 +51,7 @@ export default class BEE7Client extends AkairoClient {
                     });
                     return Config.prefix;
                 }
+
                 return config.settings.prefix
                     ? config.settings.prefix
                     : Config.prefix;

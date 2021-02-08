@@ -1,3 +1,5 @@
+import { Document } from "mongoose";
+
 export interface BotOptions {
     token: string;
     owners: string | string[];
@@ -9,4 +11,12 @@ export interface BotOptions {
 export interface PublicConfig {
     transparentColor: string;
     emojis: any;
+}
+
+export interface Settings {
+    prefix: string;
+}
+
+export interface GuildConfigType extends Document {
+    settings: Settings;
 }
