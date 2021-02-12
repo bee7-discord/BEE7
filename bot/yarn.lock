@@ -80,12 +80,12 @@ __metadata:
   linkType: hard
 
 "@types/mongodb@npm:^3.5.27":
-  version: 3.6.3
-  resolution: "@types/mongodb@npm:3.6.3"
+  version: 3.6.6
+  resolution: "@types/mongodb@npm:3.6.6"
   dependencies:
     "@types/bson": "*"
     "@types/node": "*"
-  checksum: 2ccf239c496ad5a36ff014211a073a28878ddeda7f8a73c7e2f75a9587c295dec60fff57b6036b789c9e37d74923ddfb66e1d2f70c659b3f61c9382d2bff6b38
+  checksum: ea23d63aa9ef999dabdf902ad20f2024218f4efa5e5f9e64c1501b538602d8747145be895b2ee18e629c79bf2e104da45f1597becf4d51950f9065e05b258230
   languageName: node
   linkType: hard
 
@@ -289,7 +289,7 @@ __metadata:
     mongoose: ^5.11.14
     ts-node: ^9.1.1
     ts-node-dev: ^1.1.1
-    typescript: ^4.1.3
+    typescript: ^4.1.4
     vacefron: ^3.4.0
     winston: ^3.3.3
   languageName: unknown
@@ -720,7 +720,7 @@ discord-player@Androz2091/discord-player:
 
 discord.js@discordjs/discord.js:
   version: 12.5.0
-  resolution: "discord.js@https://github.com/discordjs/discord.js.git#commit=cee6cf70ce76e9b06dc7f25bfd77498e18d7c8d4"
+  resolution: "discord.js@https://github.com/discordjs/discord.js.git#commit=ae3c3d80ee603fc46a28140107cb90c81da0afc9"
   dependencies:
     "@discordjs/collection": ^0.1.6
     "@discordjs/form-data": ^3.0.1
@@ -729,7 +729,7 @@ discord.js@discordjs/discord.js:
     prism-media: ^1.2.2
     tweetnacl: ^1.0.3
     ws: ^7.3.1
-  checksum: a93eaaa650cae677dcbe95261c6ff2e1017dd1673c6eac0f7984a4a4502596b730e511c1e181a105680026461bf7db51e29c29788ac1368170f256e9ed2da9b1
+  checksum: 2d56c6a984ba86785de92b1db8f491d8aeafd3456d0ee4244022fdd6b63b435c0d388d2933886fe37cd3014325e0bb273f30e990cd3108790ad7076734358d96
   languageName: node
   linkType: hard
 
@@ -965,20 +965,20 @@ discord.js@discordjs/discord.js:
   linkType: hard
 
 "fsevents@patch:fsevents@~2.3.1#builtin<compat/fsevents>":
-  version: 2.3.1
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.1#builtin<compat/fsevents>::version=2.3.1&hash=11e9ea"
+  version: 2.3.2
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#builtin<compat/fsevents>::version=2.3.2&hash=11e9ea"
   dependencies:
     node-gyp: latest
-  checksum: 66b24358e15cdd0f705b456346e58b4613f2bf54206b47874decda4152614fb0632d2d662c92b0ea54810109f646e5233e4cdd64dbb2a1949070ee5dc14dab87
+  checksum: 7b25d9251aefe433d508a0eb614217f0495ae05a9e8af15f7dbf9998e08c4e675acd1cf32361e0fcf71d917d9e8c4b76301fdc72a1ec1105a3ea0994f5e15a8d
   languageName: node
   linkType: hard
 
 fsevents@~2.3.1:
-  version: 2.3.1
-  resolution: "fsevents@npm:2.3.1"
+  version: 2.3.2
+  resolution: "fsevents@npm:2.3.2"
   dependencies:
     node-gyp: latest
-  checksum: 32619a121e7f9ac8a5ce4954f5fdf06be68b7b1c16e4ac8fa6e5e13cbf97d83c86cdcdf872ab7b188ebb07b34d2271b7818aebfc305b4a7d5b35f4bc2117f8be
+  checksum: a1883f4ca12b8b403ec528f1a4cb312b0877eacd24719da535cabea78d6fdd78530e3538bdba590a1c0f6c295128f964a89182621885296353a44dcfa4f9db53
   languageName: node
   linkType: hard
 
@@ -1044,17 +1044,10 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"graceful-fs@npm:^4.1.2":
-  version: 4.2.4
-  resolution: "graceful-fs@npm:4.2.4"
-  checksum: d095ee4dc6eacc76814cd52d5d185b860119378a6fd4888e7d4e94983095c54d4f6369942a5e3d759cdbdd4e3ee7eaeb27a39ff938c6ee4610894fd9de46b6cb
-  languageName: node
-  linkType: hard
-
-"graceful-fs@npm:^4.2.3":
-  version: 4.2.5
-  resolution: "graceful-fs@npm:4.2.5"
-  checksum: 164eeef7f8aca15aff8d3c61c780e286ec8867deb23d6f3cee2d6231e0b422233bf4d905edf585ce2c204e485b8511188e6752e1a28e7176f296fbdaa6269dc1
+"graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.2.3":
+  version: 4.2.6
+  resolution: "graceful-fs@npm:4.2.6"
+  checksum: 84d39c7756892553da990a9db7e45f844b3309b37b5a00174cbb4748476f2250c54f24594d4d252f64f085c65c2fdac7c809419bf6d55f0e6e42eb07ac0f5bf2
   languageName: node
   linkType: hard
 
@@ -2562,23 +2555,23 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-typescript@^4.1.3:
-  version: 4.1.3
-  resolution: "typescript@npm:4.1.3"
+typescript@^4.1.4:
+  version: 4.1.5
+  resolution: "typescript@npm:4.1.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 4f7ab1506ea22c7a1c313ec5b4285e93ce08d709ad6086d02d3096adb399ca339972ee56d1e578213c51dd0fb7b0fad50283c2d3c39642405644458ae29774f8
+  checksum: 29157c84426ac94ce97aac836264f303a26bd9fb30865650229e3406a36ca2e89735ef4b8878075ba1b95fa4d3ff9810057b64888700c28e20b4034a6db4da83
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.1.3#builtin<compat/typescript>":
-  version: 4.1.3
-  resolution: "typescript@patch:typescript@npm%3A4.1.3#builtin<compat/typescript>::version=4.1.3&hash=cc6730"
+"typescript@patch:typescript@^4.1.4#builtin<compat/typescript>":
+  version: 4.1.5
+  resolution: "typescript@patch:typescript@npm%3A4.1.5#builtin<compat/typescript>::version=4.1.5&hash=cc6730"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 017af992148346e671d5b83b041773825888e9c94db8d2b9472cdbb6d6f0ee85927817473121524d319f8be6ffe5a6904d27ff6ef21356d2274fcadd52e17938
+  checksum: 58cc7786be0f8485c124944883b1384287532e4867ec37f1fb5cb2811dbc10f7a9decccad89097f924043285f3515bfd8223c61dbb4f88af00b2d8dc2ef73207
   languageName: node
   linkType: hard
 
