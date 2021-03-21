@@ -36,6 +36,21 @@ export default class Util {
         }
     }
 
+    public static formatPermissions(permissions: string[]): string[] {
+        return permissions.map((s) => {
+            return s.includes("_")
+                ? s
+                      .split("_")
+                      .map((a) => {
+                          return `${a.charAt(0).toUpperCase()}${a
+                              .slice(1)
+                              .toLowerCase()}`;
+                      })
+                      .join(" ")
+                : `${s.charAt(0).toUpperCase()}${s.slice(1).toLowerCase()}`;
+        });
+    }
+
     public static titleCase(convert: string): string {
         return convert
             .toLowerCase()
