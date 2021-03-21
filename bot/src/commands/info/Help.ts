@@ -81,7 +81,8 @@ export default class HelpCommand extends CustomCommand {
             embed
                 .setTitle("Help")
                 .setDescription(
-                    `For additional info on a command, type \`${message.guild.prefix}help <command>\``
+                    `For additional info on a command, type \`${await message
+                        .guild.prefix}help <command>\``
                 )
                 .setFooter(
                     `${this.handler.modules.size} Commands`,
