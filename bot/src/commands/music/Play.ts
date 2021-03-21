@@ -1,5 +1,6 @@
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
+import Util from "../../classes/Util";
 
 export default class PlayCommand extends CustomCommand {
     public constructor() {
@@ -34,13 +35,19 @@ export default class PlayCommand extends CustomCommand {
 
         if (!voice) {
             return message.channel.send(
-                "You must be in a voice channel to use this command!"
+                Util.errorEmbed({
+                    description:
+                        "You must be in a voice channel to use this command!",
+                })
             );
         }
 
         if (!song)
             return message.channel.send(
-                "You must specify a song for me to play!"
+                Util.errorEmbed({
+                    description:
+                        "You must specify a song name or url for me to play | `play <song name or URL>`",
+                })
             );
 
         this.client.player.play(message, song);

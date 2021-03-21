@@ -1,5 +1,16 @@
+import { MessageEmbed } from "discord.js";
+import { MessageEmbedOptions } from "discord.js";
+
 export default class Util {
-    public convertTime(duration: number): string {
+    public static errorEmbed(data: MessageEmbedOptions): MessageEmbed {
+        return new MessageEmbed({
+            ...data,
+            description: `<a:no:746766970212450387> ${data.description}`,
+            color: "RED",
+        });
+    }
+
+    public static convertTime(duration: number): string {
         const portions: string[] = [];
 
         const msInHour = 1000 * 60 * 60;
@@ -24,7 +35,7 @@ export default class Util {
         return portions.join(" ");
     }
 
-    getBoolean(value: string): boolean {
+    public static getBoolean(value: string): boolean {
         switch (value.trim()) {
             case "true":
             case "1":
@@ -36,7 +47,7 @@ export default class Util {
         }
     }
 
-    titleCase(convert: string): string {
+    public static titleCase(convert: string): string {
         return convert
             .toLowerCase()
             .split(" ")

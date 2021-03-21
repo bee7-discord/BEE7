@@ -1,6 +1,7 @@
 import { MessageAttachment } from "discord.js";
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
+import Util from "../../classes/Util";
 
 export default class ImposterCommand extends CustomCommand {
     public constructor() {
@@ -45,7 +46,7 @@ export default class ImposterCommand extends CustomCommand {
         await message.react(this.client.config.emojis.loadingEmoji);
         const buffer = await this.client.vacefron.ejected(
             values[0],
-            this.client.utils.getBoolean(values[1]),
+            Util.getBoolean(values[1]),
             values[2] || undefined
         );
         await message.reactions.removeAll();

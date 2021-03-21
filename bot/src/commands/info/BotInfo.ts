@@ -1,6 +1,7 @@
 import { MessageEmbed } from "discord.js";
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
+import Util from "../../classes/Util";
 
 export default class BotInfoCommand extends CustomCommand {
     public constructor() {
@@ -46,7 +47,7 @@ export default class BotInfoCommand extends CustomCommand {
                     true
                 )
                 .setFooter(
-                    `The user count excludes bots | Uptime: ${this.client.utils.convertTime(
+                    `The user count excludes bots | Uptime: ${Util.convertTime(
                         this.client.uptime
                     )}`
                 )

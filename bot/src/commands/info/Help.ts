@@ -1,6 +1,7 @@
 import { MessageEmbed } from "discord.js";
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
+import Util from "../../classes/Util";
 import GuildConfig from "../../models/GuildConfig";
 import { GuildConfigType } from "../../utils/types";
 
@@ -66,9 +67,7 @@ export default class HelpCommand extends CustomCommand {
                     "❯ Required Permissions",
                     (command.userPermissions as any).map(
                         (c: string) =>
-                            `\`${this.client.utils.titleCase(
-                                c.replace("_", " ")
-                            )}\``
+                            `\`${Util.titleCase(c.replace("_", " "))}\``
                     )
                 );
             }

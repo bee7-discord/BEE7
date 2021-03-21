@@ -9,7 +9,6 @@ import logger from "../utils/logger";
 import { PublicConfig, BotOptions, GuildConfigType } from "../utils/types";
 import { Player } from "discord-player";
 import { MessageEmbed } from "discord.js";
-import Utils from "./Util";
 import { Util } from "discord.js";
 import { VACEFronJS } from "vacefron";
 
@@ -20,7 +19,6 @@ declare module "discord-akairo" {
         config: PublicConfig;
         player: Player;
         botConfig: BotOptions;
-        utils: Utils;
         vacefron: VACEFronJS;
     }
 }
@@ -30,7 +28,6 @@ export default class BEE7Client extends AkairoClient {
     public config: PublicConfig;
     public logger: Logger = logger;
     public player = new Player(this);
-    public utils: Utils = new Utils();
     public vacefron = new VACEFronJS();
 
     public listenerHandler: ListenerHandler = new ListenerHandler(this, {
@@ -84,7 +81,7 @@ export default class BEE7Client extends AkairoClient {
     public constructor(botConfig: BotOptions, config: PublicConfig) {
         super({
             ownerID: botConfig.owners,
-            ws: { intents: Intents.ALL },
+            intents: Intents.ALL,
         });
 
         this.botConfig = botConfig;

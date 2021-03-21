@@ -21,7 +21,8 @@
         "mongoose": "^5.11.16",
         "ts-node": "^9.1.1",
         "vacefron": "^3.4.0",
-        "winston": "^3.3.3"
+        "winston": "^3.3.3",
+        "ytdl-core": "latest"
     },
     "devDependencies": {
         "@types/common-tags": "^1.8.0",

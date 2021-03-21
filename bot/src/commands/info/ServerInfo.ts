@@ -4,6 +4,7 @@ import { CustomCommand } from "../../classes/Command";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import Util from "../../classes/Util";
 dayjs.extend(relativeTime);
 
 export default class PingCommand extends CustomCommand {
@@ -47,14 +48,14 @@ export default class PingCommand extends CustomCommand {
                 )
                 .addField(
                     "Explicit Content Filter",
-                    this.client.utils.titleCase(
+                    Util.titleCase(
                         message.guild.explicitContentFilter.replace("_", " ")
                     ),
                     true
                 )
                 .addField(
                     "Verification Level",
-                    this.client.utils.titleCase(
+                    Util.titleCase(
                         message.guild.verificationLevel.replace("_", " ")
                     ),
                     true

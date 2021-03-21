@@ -1,5 +1,6 @@
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
+import Util from "../../classes/Util";
 
 const FiltersList = {
     bassboost: "Bassboost",
@@ -48,24 +49,36 @@ export default class FilterCommand extends CustomCommand {
         const voice = message.member.voice.channel;
 
         if (!queue) {
-            return message.channel.send("No music currently playing!");
+            return message.channel.send(
+                Util.errorEmbed({
+                    description: "No music currently playing!",
+                })
+            );
         }
 
         if (!voice) {
             return message.channel.send(
-                "You must be in a voice channel to use this command!"
+                Util.errorEmbed({
+                    description:
+                        "You must be in a voice channel to use this command!",
+                })
             );
         }
 
         if (voice.id !== queue.voiceConnection.channel.id) {
             return message.channel.send(
-                "You must be in the same voice channel as me!"
+                Util.errorEmbed({
+                    description: "You must be in the same voice channel as me!",
+                })
             );
         }
 
         if (!filter)
             return message.channel.send(
-                "You must specify a filter! `filter <filter name>`"
+                Util.errorEmbed({
+                    description:
+                        "You must specify a filter! | `filter <filter name>` | Use the `filters` command to get a list of filters",
+                })
             );
 
         const filterToUpdate = Object.values(FiltersList).find(
