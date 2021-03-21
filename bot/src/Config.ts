@@ -4,11 +4,13 @@ export const Config: BotOptions = {
     // The bot token
     token: "",
     // The bots prefix you want to use
-    prefix: "?",
+    prefix: "",
     // Put your owner id (and maybe other people's as well)
     owners: [""],
     // This only determines if the Mongo database is production or development
     devMode: true,
+    // If you don't want to get this, just remove the usage of it from Eval.ts
+    snowflakeApiKey: "",
 };
 
 export const PublicConfig: PubConfig = {
