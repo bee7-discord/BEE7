@@ -49,4 +49,8 @@ export default class CmdNameCommand extends CustomCommand {
 
 # What should I include in the pull request?
 
-I have made a template for pull requests, please fill that out before submitting it. If there is anything else you think that is important, please add it.
+Please include the following:
+
+-   What the pull request adds
+-   Why you think the pull request is necessary
+-   Does it include any breaking changes (changed args pattern, command names, etc)?
