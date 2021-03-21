@@ -13,7 +13,6 @@ export default class SkipCommand extends CustomCommand {
                 usage: "skip",
                 examples: ["skip"],
             },
-            ratelimit: 3,
         });
     }
 

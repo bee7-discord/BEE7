@@ -37,7 +37,6 @@ export default class CmdNameCommand extends CustomCommand {
                 usage: "usage",
                 examples: ["example"],
             },
-            ratelimit: 3,
         });
     }
 

@@ -11,7 +11,6 @@ export default class LyricsCommand extends CustomCommand {
                 usage: "lyrics",
                 examples: ["lyrics"],
             },
-            ratelimit: 3,
         });
     }
 

@@ -29,7 +29,6 @@ export default class PingCommand extends CustomCommand {
                 },
             ],
             userPermissions: ["MANAGE_MESSAGES"],
-            ratelimit: 3,
         });
     }
 

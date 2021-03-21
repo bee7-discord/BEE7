@@ -11,7 +11,6 @@ export default class StopCommand extends CustomCommand {
                 usage: "stop",
                 examples: ["stop"],
             },
-            ratelimit: 3,
         });
     }
 

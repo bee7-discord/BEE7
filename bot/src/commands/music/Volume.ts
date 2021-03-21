@@ -18,7 +18,6 @@ export default class VolumeCommand extends CustomCommand {
                     default: null,
                 },
             ],
-            ratelimit: 3,
         });
     }
 

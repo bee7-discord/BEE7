@@ -23,7 +23,6 @@ export default class batmanslapCommand extends CustomCommand {
                     default: null,
                 },
             ],
-            ratelimit: 3,
         });
     }
 

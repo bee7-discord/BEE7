@@ -24,7 +24,6 @@ export default class RemoveCommand extends CustomCommand {
                         "You need the `Manage Server` permission to run this command"
                     );
             },
-            ratelimit: 3,
         });
     }
 

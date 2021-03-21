@@ -11,7 +11,6 @@ export default class ResumeCommand extends CustomCommand {
                 usage: "Resume",
                 examples: ["resume"],
             },
-            ratelimit: 3,
         });
     }
 

@@ -35,7 +35,6 @@ export default class FilterCommand extends CustomCommand {
                     default: null,
                 },
             ],
-            ratelimit: 3,
         });
     }
 

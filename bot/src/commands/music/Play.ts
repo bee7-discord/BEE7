@@ -22,7 +22,6 @@ export default class PlayCommand extends CustomCommand {
                     default: null,
                 },
             ],
-            ratelimit: 3,
         });
     }
 

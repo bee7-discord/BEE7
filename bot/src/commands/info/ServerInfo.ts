@@ -17,7 +17,6 @@ export default class PingCommand extends CustomCommand {
                 usage: "serverinfo",
                 examples: ["serverinfo"],
             },
-            ratelimit: 3,
         });
     }
 

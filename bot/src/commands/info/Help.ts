@@ -13,7 +13,7 @@ export default class HelpCommand extends CustomCommand {
                 usage: "help [command]",
                 examples: ["help botinfo", "help userinfo"],
             },
-            ratelimit: 3,
+
             args: [
                 {
                     id: "command",

@@ -1,7 +1,7 @@
 import { Message } from "discord.js";
-import CustomListener from "../../classes/Listener";
+import Listener from "../../classes/Listener";
 
-export default class ReadyEvent extends CustomListener {
+export default class ReadyEvent extends Listener {
     public constructor() {
         super("message", {
             emitter: "client",

@@ -15,7 +15,7 @@ export default class UserInfoCommand extends CustomCommand {
                     "userinfo 444655632424108032",
                 ],
             },
-            ratelimit: 3,
+
             args: [
                 {
                     id: "member",

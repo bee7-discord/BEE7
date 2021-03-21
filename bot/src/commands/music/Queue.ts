@@ -15,7 +15,6 @@ export default class QueueCommand extends CustomCommand {
                 usage: "queue",
                 examples: ["queue"],
             },
-            ratelimit: 3,
         });
     }
 

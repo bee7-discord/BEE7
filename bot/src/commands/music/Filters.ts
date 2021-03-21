@@ -29,7 +29,6 @@ export default class PingCommand extends CustomCommand {
                 usage: "ping",
                 examples: ["ping"],
             },
-            ratelimit: 3,
         });
     }
 

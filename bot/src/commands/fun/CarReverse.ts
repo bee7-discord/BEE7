@@ -21,7 +21,6 @@ export default class CarReverseCommand extends CustomCommand {
                     default: null,
                 },
             ],
-            ratelimit: 3,
         });
     }
 

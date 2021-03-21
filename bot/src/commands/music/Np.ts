@@ -12,7 +12,6 @@ export default class NowPlayingCommand extends CustomCommand {
                 usage: "nowplaying",
                 examples: ["nowplaying", "np"],
             },
-            ratelimit: 3,
         });
     }
 

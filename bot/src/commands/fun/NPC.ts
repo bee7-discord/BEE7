@@ -22,7 +22,6 @@ export default class ImposterCommand extends CustomCommand {
                     default: null,
                 },
             ],
-            ratelimit: 3,
         });
     }
 

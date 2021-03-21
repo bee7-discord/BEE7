@@ -11,7 +11,6 @@ export default class PauseCommand extends CustomCommand {
                 usage: "pause",
                 examples: ["pause"],
             },
-            ratelimit: 3,
         });
     }
 

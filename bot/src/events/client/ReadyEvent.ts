@@ -1,7 +1,7 @@
-import CustomListener from "../../classes/Listener";
+import Listener from "../../classes/Listener";
 import logger from "../../utils/logger";
 
-export default class ReadyEvent extends CustomListener {
+export default class ReadyEvent extends Listener {
     public constructor() {
         super("ready", {
             emitter: "client",

@@ -24,7 +24,6 @@ export default class PingCommand extends CustomCommand {
                 },
             ],
             userPermissions: ["ADMINISTRATOR"],
-            ratelimit: 3,
         });
     }
 

@@ -20,7 +20,6 @@ export default class PingCommand extends CustomCommand {
                     match: "rest",
                 },
             ],
-            ratelimit: 3,
         });
     }
 
