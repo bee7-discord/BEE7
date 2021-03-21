@@ -15,10 +15,10 @@
         "axios": "^0.21.1",
         "dayjs": "^1.10.4",
         "discord-akairo": "1Computer1/discord-akairo",
-        "discord-paginationembed": "gazmull/discord-paginationembed",
+        "discord-paginationembed": "^2.1.0",
         "discord-player": "Androz2091/discord-player",
         "discord.js": "discordjs/discord.js",
-        "mongoose": "^5.11.16",
+        "mongoose": "^5.12.1",
         "ts-node": "^9.1.1",
         "vacefron": "^3.4.0",
         "winston": "^3.3.3",
@@ -26,9 +26,9 @@
     },
     "devDependencies": {
         "@types/common-tags": "^1.8.0",
-        "@types/node": "^14.14.28",
+        "@types/node": "^14.14.35",
         "@types/node-fetch": "^2.5.8",
-        "ts-node-dev": "^1.1.1",
+        "ts-node-dev": "^1.1.6",
         "typescript": "^4.1.4"
     }
 }

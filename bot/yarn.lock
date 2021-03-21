@@ -99,10 +99,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^14.11.10, @types/node@npm:^14.14.28, @types/node@npm:^14.14.7":
+"@types/node@npm:*, @types/node@npm:^14.11.10, @types/node@npm:^14.14.7":
   version: 14.14.28
   resolution: "@types/node@npm:14.14.28"
   checksum: e750df4d5e93c639d04100e7d54d9e416ecc649d4d7951ac1d5b82d092c556f6e7775a191995e06d6def65ae7bc25533d188fe122dc660724d119ce3ddae2cea
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^14.14.35":
+  version: 14.14.35
+  resolution: "@types/node@npm:14.14.35"
+  checksum: 0f6320bf5370d1ff82105fb7f26aa0658499c97d3ec78561e65b65724280244f281602541182b63470d2c8a98db22fbb4f91409c5c7c97da8c3bb8f97fbc5dbc
   languageName: node
   linkType: hard
 
@@ -278,17 +285,17 @@ __metadata:
   dependencies:
     "@discordjs/opus": ^0.4.0
     "@types/common-tags": ^1.8.0
-    "@types/node": ^14.14.28
+    "@types/node": ^14.14.35
     "@types/node-fetch": ^2.5.8
     axios: ^0.21.1
     dayjs: ^1.10.4
     discord-akairo: 1Computer1/discord-akairo
-    discord-paginationembed: gazmull/discord-paginationembed
+    discord-paginationembed: ^2.1.0
     discord-player: Androz2091/discord-player
     discord.js: discordjs/discord.js
-    mongoose: ^5.11.16
+    mongoose: ^5.12.1
     ts-node: ^9.1.1
-    ts-node-dev: ^1.1.1
+    ts-node-dev: ^1.1.6
     typescript: ^4.1.4
     vacefron: ^3.4.0
     winston: ^3.3.3
@@ -412,7 +419,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:^3.4.0":
+"chokidar@npm:^3.5.1":
   version: 3.5.1
   resolution: "chokidar@npm:3.5.1"
   dependencies:
@@ -684,12 +691,12 @@ discord-akairo@1Computer1/discord-akairo:
   languageName: node
   linkType: hard
 
-discord-paginationembed@gazmull/discord-paginationembed:
-  version: 2.0.0
-  resolution: "discord-paginationembed@https://github.com/gazmull/discord-paginationembed.git#commit=bcf150b9207c3885884f181d343a592bf9247db2"
+"discord-paginationembed@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "discord-paginationembed@npm:2.1.0"
   peerDependencies:
     discord.js: ^12.0.0
-  checksum: 9b48cbd9384bedb890717bf472a9faf4070b98dc165397417393d06eb33dbd20eea9a886f53e56c604caa4aed24095a0baa6d0a2eefdd302c15dd85855cfda47
+  checksum: 4949f10895275d896414a7ed45fd45332111dad66088567435129aa605fafc386042d706a04d838905ffd40d20e293673dc19d00f9109fc5a8b3b9dd03ecbca5
   languageName: node
   linkType: hard
 
@@ -1549,9 +1556,9 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"mongodb@npm:3.6.4":
-  version: 3.6.4
-  resolution: "mongodb@npm:3.6.4"
+"mongodb@npm:3.6.5":
+  version: 3.6.5
+  resolution: "mongodb@npm:3.6.5"
   dependencies:
     bl: ^2.2.1
     bson: ^1.1.4
@@ -1575,7 +1582,7 @@ fsevents@~2.3.1:
       optional: true
     snappy:
       optional: true
-  checksum: f2331e7cdce7694b033346f898af9429bab53505ffc1175cb66e370eecc26eb3ae08d950f57ee6ca0be1a4d24f735c40ac758f3e8f0f68826b43e7a36ed5f5bf
+  checksum: 6a838b79e104cee243e2ed10a5ded90490bb4db687ca1f1cabeab6c578441b1db64136fd33bad7112ca4a09e60a99a3b039d1c11e515521ffffa66ed91fb3148
   languageName: node
   linkType: hard
 
@@ -1588,14 +1595,14 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"mongoose@npm:5.11.16, mongoose@npm:^5.11.16":
-  version: 5.11.16
-  resolution: "mongoose@npm:5.11.16"
+"mongoose@npm:5.12.1, mongoose@npm:^5.12.1":
+  version: 5.12.1
+  resolution: "mongoose@npm:5.12.1"
   dependencies:
     "@types/mongodb": ^3.5.27
     bson: ^1.1.4
     kareem: 2.3.2
-    mongodb: 3.6.4
+    mongodb: 3.6.5
     mongoose-legacy-pluralize: 1.0.2
     mpath: 0.8.3
     mquery: 3.2.4
@@ -1604,7 +1611,7 @@ fsevents@~2.3.1:
     safe-buffer: 5.2.1
     sift: 7.0.1
     sliced: 1.0.1
-  checksum: 1ddf33178fede52d2c7772e757dcded8f17639c7b85a8ece7284d0a6b83b49593d3bfd4f37c82faa5433fd5e1f2809454c92a2ae8c4045bff701b98871fef2f4
+  checksum: 0e3f24e9bb02355df50d0cba16b95b0e153ee0e497c9ceb743da47fc5ccda5c204b65511c8b45d37af1fec5c4f4ed19221feeae9700026d2664979a5fbef3f74
   languageName: node
   linkType: hard
 
@@ -2481,11 +2488,11 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"ts-node-dev@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "ts-node-dev@npm:1.1.1"
+"ts-node-dev@npm:^1.1.6":
+  version: 1.1.6
+  resolution: "ts-node-dev@npm:1.1.6"
   dependencies:
-    chokidar: ^3.4.0
+    chokidar: ^3.5.1
     dateformat: ~1.0.4-1.2.3
     dynamic-dedupe: ^0.3.0
     minimist: ^1.2.5
@@ -2505,7 +2512,7 @@ fsevents@~2.3.1:
   bin:
     ts-node-dev: lib/bin.js
     tsnd: lib/bin.js
-  checksum: 8730d5debaa2557ee38a2be3d22fc7f59c905806b4047c939580bef5f1bd56ee7025f7dc3accbba2e64ac4e954475acb5f4785d83d1031cfe6bd97a304b3af51
+  checksum: 565064856bca252ac64a745c6f036d1a11d7b6b18162249c1c3e7d7586470c7b1b00daf8c6fa47bc6e0c4201f7fdc62f002ea7d3b56505efc72df69654345251
   languageName: node
   linkType: hard
 
