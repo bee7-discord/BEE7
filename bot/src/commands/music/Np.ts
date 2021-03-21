@@ -1,7 +1,6 @@
 import { MessageEmbed } from "discord.js";
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
-import Util from "../../classes/Util";
 
 export default class NowPlayingCommand extends CustomCommand {
     public constructor() {
@@ -23,28 +22,15 @@ export default class NowPlayingCommand extends CustomCommand {
         const voice = message.member.voice.channel;
 
         if (!queue) {
-            return message.channel.send(
-                Util.errorEmbed({
-                    description: "No music currently playing!",
-                })
-            );
+            return message.error("NO_MUSIC_PLAYING");
         }
 
         if (!voice) {
-            return message.channel.send(
-                Util.errorEmbed({
-                    description:
-                        "You must be in a voice channel to use this command!",
-                })
-            );
+            return message.error("NO_VOICE_CHANNEL");
         }
 
         if (voice.id !== queue.voiceConnection.channel.id) {
-            return message.channel.send(
-                Util.errorEmbed({
-                    description: "You must be in the same voice channel as me!",
-                })
-            );
+            return message.error("SAME_VOICE_CHANNEL");
         }
 
         const track = this.client.player.nowPlaying(message);

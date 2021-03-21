@@ -1,6 +1,5 @@
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
-import Util from "../../classes/Util";
 
 export default class RemoveCommand extends CustomCommand {
     public constructor() {
@@ -36,28 +35,19 @@ export default class RemoveCommand extends CustomCommand {
         const queue = this.client.player.getQueue(message);
 
         if (!queue) {
-            return message.channel.send(
-                Util.errorEmbed({
-                    description: "No music currently playing!",
-                })
-            );
+            return message.error("NO_MUSIC_PLAYING");
         }
 
         if (!track || isNaN(parseInt(track))) {
             return message.channel.send(
-                Util.errorEmbed({
-                    description:
-                        "Incorrect usage! | `remove <number of song in queue>`",
-                })
+                "Incorrect usage! | `remove <number of song in queue>`"
             );
         }
 
         const removed = this.client.player.remove(message, +track);
         if (!removed) {
             return message.channel.send(
-                Util.errorEmbed({
-                    description: "Could not find that track in the queue!",
-                })
+                "Could not find that track in the queue"
             );
         }
 
@@ -68,7 +58,7 @@ export default class RemoveCommand extends CustomCommand {
         if (!queue.tracks[0]) {
             this.client.player.stop(message);
             return message.channel.send(
-                "Music stopped as there is no more music in the queue!"
+                "Music stopped as there is no more music in the queue"
             );
         }
     }

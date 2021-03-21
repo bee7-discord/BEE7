@@ -4,9 +4,10 @@
     "description": "An amazing discord bot",
     "main": "src/Bot.ts",
     "scripts": {
-        "dev": "ts-node-dev src/Bot.ts",
-        "lavalink": "java -jar lavalink/Lavalink.jar",
-        "start": "ts-node src/Bot.ts"
+        "dev": "nodemon dist/Bot.js",
+        "build": "tsc",
+        "start": "node dist/Bot.js",
+        "watch": "tsc -w"
     },
     "author": "Beatzoid",
     "license": "ISC",

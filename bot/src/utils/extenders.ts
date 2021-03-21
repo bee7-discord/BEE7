@@ -1,12 +1,22 @@
-import { Structures, Client } from "discord.js";
+import {
+    Structures,
+    Client,
+    TextChannel,
+    DMChannel,
+    NewsChannel,
+    Message as DiscordMessage,
+} from "discord.js";
 import { Config } from "../Config";
 import GuildConfig from "../models/GuildConfig";
-import { GuildConfigType } from "./types";
+import { Errors, GuildConfigType } from "./types";
 
 // Whenever you add/remove any property from any structure please update the types below
 declare module "discord.js" {
     interface Guild {
         prefix: Promise<string>;
+    }
+    interface Message {
+        error(errorCode: keyof typeof Errors): Promise<Message>;
     }
 }
 
@@ -40,4 +50,22 @@ Structures.extend("Guild", (Guild) => {
     }
 
     return CustomGuild;
+});
+
+Structures.extend("Message", (Message) => {
+    class CustomMessage extends Message {
+        constructor(
+            client: Client,
+            data: Object,
+            channel: TextChannel | DMChannel | NewsChannel
+        ) {
+            super(client, data, channel);
+        }
+
+        public error(errorCode: keyof typeof Errors): Promise<DiscordMessage> {
+            return this.channel.send(Errors[errorCode]);
+        }
+    }
+
+    return CustomMessage;
 });

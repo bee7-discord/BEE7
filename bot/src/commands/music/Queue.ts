@@ -4,7 +4,6 @@ import { FieldsEmbed } from "discord-paginationembed";
 import { MessageEmbed } from "discord.js";
 import { TextChannel } from "discord.js";
 import { Track } from "discord-player";
-import Util from "../../classes/Util";
 
 export default class QueueCommand extends CustomCommand {
     public constructor() {
@@ -26,28 +25,15 @@ export default class QueueCommand extends CustomCommand {
         const voice = message.member.voice.channel;
 
         if (!queue) {
-            return message.channel.send(
-                Util.errorEmbed({
-                    description: "No music currently playing!",
-                })
-            );
+            return message.error("NO_MUSIC_PLAYING");
         }
 
         if (!voice) {
-            return message.channel.send(
-                Util.errorEmbed({
-                    description:
-                        "You must be in a voice channel to use this command!",
-                })
-            );
+            return message.error("NO_VOICE_CHANNEL");
         }
 
         if (voice.id !== queue.voiceConnection.channel.id) {
-            return message.channel.send(
-                Util.errorEmbed({
-                    description: "You must be in the same voice channel as me!",
-                })
-            );
+            return message.error("SAME_VOICE_CHANNEL");
         }
 
         if (queue.tracks.length === 1) {

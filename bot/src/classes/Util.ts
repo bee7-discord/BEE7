@@ -1,15 +1,4 @@
-import { MessageEmbed } from "discord.js";
-import { MessageEmbedOptions } from "discord.js";
-
 export default class Util {
-    public static errorEmbed(data: MessageEmbedOptions): MessageEmbed {
-        return new MessageEmbed({
-            ...data,
-            description: `<a:no:746766970212450387> ${data.description}`,
-            color: "RED",
-        });
-    }
-
     public static convertTime(duration: number): string {
         const portions: string[] = [];
 
