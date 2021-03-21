@@ -13,7 +13,8 @@ BEE7 is a multi-purpose discord bot with everything you would ever need.
 
 # How do I suggest new features or report bugs?
 
-Join the discord [here](https://discord.gg/fbsDSTperG) and use #suggestions or #bug-reports accordingly
+~~Join the discord [here](https://discord.gg/fbsDSTperG) and use #suggestions or #bug-reports accordingly~~
+The Discord server has been deleted and won't be re-created until this bot becomes popular. For now, just use Github issues to submit new features or report bugs
 
 # Dev Status
 
