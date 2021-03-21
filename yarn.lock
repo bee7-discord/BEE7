@@ -617,6 +617,7 @@ __metadata:
     typescript: ^4.1.4
     vacefron: ^3.4.0
     winston: ^3.3.3
+    ytdl-core: latest
   languageName: unknown
   linkType: soft
 
@@ -4280,5 +4281,16 @@ typescript@^4.1.4:
     miniget: ^4.0.0
     sax: ^1.1.3
   checksum: c94943e5c7acd20d8252381329e102412fe678d898caa0d69e9ddf0038a51ff0a5cc17eeb13119bea6713a94fae306562ea7941d25511be045df5c02e4c3d88d
+  languageName: node
+  linkType: hard
+
+"ytdl-core@npm:latest":
+  version: 4.5.0
+  resolution: "ytdl-core@npm:4.5.0"
+  dependencies:
+    m3u8stream: ^0.8.3
+    miniget: ^4.0.0
+    sax: ^1.1.3
+  checksum: e17eaf220298360641ee42be8640b501074d5d5bf565d94e84a219d034f8cc24f9834d37c41abacd02af5297672f9dd81c51a422e4ef3c97fe53559c53325750
   languageName: node
   linkType: hard
