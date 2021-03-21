@@ -380,9 +380,9 @@ discord-akairo@1Computer1/discord-akairo:
   resolved "https://codeload.github.com/1Computer1/discord-akairo/tar.gz/29810b9e5d5cd804c649948ad60e5f2ac3897141"
 
 discord-paginationembed@gazmull/discord-paginationembed:
-  version "2.0.0"
-  uid bcf150b9207c3885884f181d343a592bf9247db2
-  resolved "https://codeload.github.com/gazmull/discord-paginationembed/tar.gz/bcf150b9207c3885884f181d343a592bf9247db2"
+  version "2.1.0"
+  uid e2e7eb9b9ee2348a35617bf9f69338749b795b0e
+  resolved "https://codeload.github.com/gazmull/discord-paginationembed/tar.gz/e2e7eb9b9ee2348a35617bf9f69338749b795b0e"
 
 discord-player@Androz2091/discord-player:
   version "3.2.1"
