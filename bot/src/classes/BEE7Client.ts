@@ -4,9 +4,8 @@ import mongoose from "mongoose";
 import { join } from "path";
 import { Logger } from "winston";
 import { Config } from "../Config";
-import GuildConfig from "../models/GuildConfig";
 import logger from "../utils/logger";
-import { PublicConfig, BotOptions, GuildConfigType } from "../utils/types";
+import { PublicConfig, BotOptions } from "../utils/types";
 import { Player } from "discord-player";
 import { MessageEmbed } from "discord.js";
 import { Util } from "discord.js";
@@ -23,6 +22,8 @@ declare module "discord-akairo" {
     }
 }
 
+
+
 export default class BEE7Client extends AkairoClient {
     public botConfig: BotOptions;
     public config: PublicConfig;
@@ -35,26 +36,8 @@ export default class BEE7Client extends AkairoClient {
     });
     public commandHandler: CommandHandler = new CommandHandler(this, {
         directory: join(__dirname, "..", "commands"),
-        prefix: async (msg: Message) => {
-            if (msg.guild) {
-                const config = (await GuildConfig.findOne({
-                    guildId: msg.guild.id,
-                }).exec()) as GuildConfigType;
-
-                if (!config) {
-                    await GuildConfig.create({
-                        guildId: msg.guild.id,
-                        settings: { prefix: Config.prefix },
-                    });
-                    return Config.prefix;
-                }
-
-                return config.settings.prefix
-                    ? config.settings.prefix
-                    : Config.prefix;
-            }
-            return Config.prefix;
-        },
+        prefix: async (msg: Message) =>
+            msg.guild ? msg.guild.prefix : Config.prefix,
         allowMention: true,
         handleEdits: true,
         commandUtil: true,

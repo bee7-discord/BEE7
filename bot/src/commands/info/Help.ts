@@ -2,8 +2,6 @@ import { MessageEmbed } from "discord.js";
 import { Message } from "discord.js";
 import { CustomCommand } from "../../classes/Command";
 import Util from "../../classes/Util";
-import GuildConfig from "../../models/GuildConfig";
-import { GuildConfigType } from "../../utils/types";
 
 export default class HelpCommand extends CustomCommand {
     public constructor() {
@@ -30,10 +28,6 @@ export default class HelpCommand extends CustomCommand {
         message: Message,
         { command }: { command: CustomCommand }
     ): Promise<Message> {
-        const config = (await GuildConfig.findOne({
-            guildId: message.guild.id,
-        })) as GuildConfigType;
-
         const embed = new MessageEmbed().setColor(
             this.client.config.transparentColor
         );
@@ -87,7 +81,7 @@ export default class HelpCommand extends CustomCommand {
             embed
                 .setTitle("Help")
                 .setDescription(
-                    `For additional info on a command, type \`${config.settings.prefix}help <command>\``
+                    `For additional info on a command, type \`${message.guild.prefix}help <command>\``
                 )
                 .setFooter(
                     `${this.handler.modules.size} Commands`,

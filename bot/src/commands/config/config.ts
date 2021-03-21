@@ -67,7 +67,7 @@ export default class PrefixCommand extends CustomCommand {
             switch (setting) {
                 case "prefix":
                     return message.channel.send(
-                        "Incorrect usage! Correct usage is `config prefix <new prefix>`"
+                        `The prefix is \`${message.guild.prefix}\``
                     );
                 default:
                     return message.channel.send("Unknown setting");

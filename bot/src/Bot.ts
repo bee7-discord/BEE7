@@ -1,3 +1,4 @@
+import "./utils/extenders";
 import { Config, PublicConfig } from "./Config";
 import BEE7Client from "./classes/BEE7Client";
 

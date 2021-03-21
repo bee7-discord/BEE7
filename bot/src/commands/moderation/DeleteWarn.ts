@@ -27,6 +27,10 @@ export default class PingCommand extends CustomCommand {
         message: Message,
         { id }: { id: string }
     ): Promise<Message> {
+        if (!id)
+            return message.channel.send(
+                "You must provide a warn id! | `deletewarn <id>`"
+            );
         const warns: any = await Warns.findOne({
             guildId: message.guild.id,
         });
