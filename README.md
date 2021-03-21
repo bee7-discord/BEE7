@@ -7,9 +7,10 @@ BEE7 is a multi-purpose discord bot with everything you would ever need.
 > ⚠️ This requires Node.js V14 or above
 
 1. Clone the repo
-2. Run `cd bot` and then `yarn install`
-3. Fill in `Config.ts` (I have added a bunch of comments to make it easier)
-4. Run `yarn dev` to start the bot up.
+2. Run `yarn install` to install commit-lint and things like that
+3. Run `cd bot` and then `yarn install`
+4. Fill in `Config.ts` (I have added a bunch of comments to make it easier)
+5. Run `yarn dev` to start the bot up.
 
 # How do I suggest new features or report bugs?
 
