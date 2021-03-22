@@ -67,7 +67,8 @@ export default class PrefixCommand extends CustomCommand {
             switch (setting) {
                 case "prefix":
                     return message.channel.send(
-                        `The prefix is \`${await message.guild.prefix}\``
+                        `The current guild's prefix is \`${await message.guild
+                            .prefix}\``
                     );
                 default:
                     return message.channel.send("Unknown setting");
