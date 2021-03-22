@@ -32,7 +32,7 @@ export default class BanCommand extends CustomCommand {
                         if (
                             ["perm", "permanent"].includes(phrase.toLowerCase())
                         )
-                            return "Permanent";
+                            return "permanent";
                         return null;
                     },
                     prompt: {
@@ -80,9 +80,10 @@ export default class BanCommand extends CustomCommand {
 
         member
             .ban({ reason })
+            .then(() => message.react(":white_check_mark:"))
             .catch(() => message.channel.send("I cannot ban that member"));
 
-        if (time.toLowerCase() !== "permanent") {
+        if (time !== "permanent") {
             setTimeout(() => {
                 message.guild.members.unban(member.id, "Ban period expired");
             }, time);
