@@ -2,11 +2,11 @@ import { BotOptions, PublicConfig as PubConfig } from "./utils/types";
 
 export const Config: BotOptions = {
     // The bot token
-    token: "ODAyMDE5ODY2NTI1Njk2MDUw.YApJNA.8zy1AXzwoUk0c-7KtjuWqKeIT00",
+    token: "",
     // The bots prefix you want to use
     prefix: "?",
     // Put your owner id (and maybe other people's as well)
-    owners: ["444655632424108032"],
+    owners: [""],
     // This only determines if the Mongo database is production or development
     devMode: true,
     // If you don't want to get this, just remove the usage of it from Eval.ts
