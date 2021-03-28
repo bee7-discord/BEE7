@@ -1,6 +1,6 @@
 Firstly, thank you for being interested in contributing to BEE7! Please read the following fully in order to understand how to contribute.
 
-# Are you fixing a bug or submitting a pull request?
+# How do I create a new branch/pull request?
 
 Do the following:
 
