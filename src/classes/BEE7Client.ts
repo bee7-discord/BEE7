@@ -10,6 +10,7 @@ import { Player } from "discord-player";
 import { MessageEmbed } from "discord.js";
 import { Util } from "discord.js";
 import { VACEFronJS } from "vacefron";
+import { DiscordBattleShip } from "../utils/Battleship";
 
 declare module "discord-akairo" {
     interface AkairoClient {
@@ -19,10 +20,9 @@ declare module "discord-akairo" {
         player: Player;
         botConfig: BotOptions;
         vacefron: VACEFronJS;
+        battleship: DiscordBattleShip;
     }
 }
-
-
 
 export default class BEE7Client extends AkairoClient {
     public botConfig: BotOptions;
@@ -30,6 +30,7 @@ export default class BEE7Client extends AkairoClient {
     public logger: Logger = logger;
     public player = new Player(this);
     public vacefron = new VACEFronJS();
+    public battleship: DiscordBattleShip;
 
     public listenerHandler: ListenerHandler = new ListenerHandler(this, {
         directory: join(__dirname, "..", "events"),
@@ -69,6 +70,10 @@ export default class BEE7Client extends AkairoClient {
 
         this.botConfig = botConfig;
         this.config = config;
+        this.battleship = new DiscordBattleShip({
+            embedColor: "RED",
+            prefix: Config.prefix,
+        });
     }
 
     private _registerMusicEvents(): void {
