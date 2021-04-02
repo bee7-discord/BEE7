@@ -32,14 +32,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:12.0.1":
-  version: 12.0.1
-  resolution: "@commitlint/cli@npm:12.0.1"
+"@commitlint/cli@npm:12.1.0":
+  version: 12.1.0
+  resolution: "@commitlint/cli@npm:12.1.0"
   dependencies:
     "@commitlint/format": ^12.0.1
-    "@commitlint/lint": ^12.0.1
-    "@commitlint/load": ^12.0.1
-    "@commitlint/read": ^12.0.1
+    "@commitlint/lint": ^12.1.0
+    "@commitlint/load": ^12.1.0
+    "@commitlint/read": ^12.1.0
     "@commitlint/types": ^12.0.1
     get-stdin: 8.0.0
     lodash: ^4.17.19
@@ -48,7 +48,7 @@ __metadata:
     yargs: ^16.2.0
   bin:
     commitlint: cli.js
-  checksum: ae79bf1c7bfe2ce926241ad9d7fe58e845e5d8d97b4a4c06ca19926dcd026f01418716600be23f26fa5900bbcafe90718c93d3ea61e5e1c8506ffcb3aca6cf8f
+  checksum: c33d79fe8a872b7f9ea9a30aa47387882d0740abeabefc10a15735b1f069cd1eab8291c08afe9acc98863da5facc40b0ee472be081b9e5b0657ca80d46f8703b
   languageName: node
   linkType: hard
 
@@ -105,7 +105,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/lint@npm:^12.0.1":
+"@commitlint/lint@npm:^12.1.0":
   version: 12.1.0
   resolution: "@commitlint/lint@npm:12.1.0"
   dependencies:
@@ -117,7 +117,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:^12.0.1":
+"@commitlint/load@npm:^12.1.0":
   version: 12.1.0
   resolution: "@commitlint/load@npm:12.1.0"
   dependencies:
@@ -150,7 +150,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/read@npm:^12.0.1":
+"@commitlint/read@npm:^12.1.0":
   version: 12.1.0
   resolution: "@commitlint/read@npm:12.1.0"
   dependencies:
@@ -666,7 +666,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bee7@workspace:."
   dependencies:
-    "@commitlint/cli": 12.0.1
+    "@commitlint/cli": 12.1.0
     "@commitlint/config-angular": 12.0.1
     "@discordjs/opus": ^0.5.0
     "@types/common-tags": ^1.8.0
