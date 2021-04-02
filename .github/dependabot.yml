@@ -4,3 +4,6 @@ updates:
       directory: "bot"
       schedule:
           interval: "daily"
+      commit-message:
+        prefix: "deps"
+        include: "scope"
