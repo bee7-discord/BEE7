@@ -1,14 +1,12 @@
 import { AkairoClient, CommandHandler, ListenerHandler } from "discord-akairo";
-import { Intents, Message } from "discord.js";
+import { Intents, Message, MessageEmbed, Util } from "discord.js";
 import mongoose from "mongoose";
 import { join } from "path";
 import { Logger } from "winston";
 import { Config } from "../Config";
 import logger from "../utils/logger";
 import { PublicConfig, BotOptions } from "../utils/types";
-import { Player } from "discord-player";
-import { MessageEmbed } from "discord.js";
-import { Util } from "discord.js";
+import { Player, Track } from "discord-player";
 import { VACEFronJS } from "vacefron";
 import { DiscordBattleShip } from "../utils/Battleship";
 
@@ -100,7 +98,7 @@ export default class BEE7Client extends AkairoClient {
                         tracks
                             .slice(0, 5)
                             .map(
-                                (t, i) =>
+                                (t: Track, i: number) =>
                                     `${i + 1}. ${Util.escapeMarkdown(t.title)}`
                             )
                     )

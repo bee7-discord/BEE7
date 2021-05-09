@@ -21,6 +21,8 @@ export default class PingCommand extends CustomCommand {
     }
 
     public async exec(message: Message): Promise<Message> {
+        const owner = await message.guild.members.fetch(message.guild.ownerID);
+
         return message.channel.send(
             new MessageEmbed()
                 .setAuthor(
@@ -28,7 +30,7 @@ export default class PingCommand extends CustomCommand {
                     message.guild.iconURL({ dynamic: true })
                 )
                 .setColor(this.client.config.transparentColor)
-                .addField("Owner", message.guild.owner.user.tag, true)
+                .addField("Owner", owner.user.tag, true)
                 .addField("Emoji Count", message.guild.emojis.cache.size, true)
                 .addField("Region", message.guild.region, true)
                 .addField(

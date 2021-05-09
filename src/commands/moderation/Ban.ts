@@ -65,8 +65,8 @@ export default class BanCommand extends CustomCommand {
         if (
             (member.roles.highest.position >
                 message.member.roles.highest.position &&
-                message.guild.owner.id !== message.member.id) ||
-            member.id === message.guild.owner.id
+                message.guild.ownerID !== message.member.id) ||
+            member.id === message.guild.ownerID
         )
             return message.channel.send(
                 `**${member.user.username}** has a higher staff position than you so you can't ban them`
