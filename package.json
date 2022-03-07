@@ -10,7 +10,7 @@
         "watch": "tsc -w"
     },
     "dependencies": {
-        "@discordjs/opus": "^0.5.0",
+        "@discordjs/opus": "^0.7.0",
         "axios": "^0.21.1",
         "dayjs": "^1.10.4",
         "discord-akairo": "1Computer1/discord-akairo",
