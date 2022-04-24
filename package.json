@@ -15,7 +15,7 @@
         "dayjs": "^1.10.4",
         "discord-akairo": "1Computer1/discord-akairo",
         "discord-paginationembed": "^2.1.0",
-        "discord-player": "^4.0.6",
+        "discord-player": "^5.0.0",
         "discord-uno": "^2.0.21",
         "discord.js": "discordjs/discord.js",
         "mongoose": "^5.12.7",
