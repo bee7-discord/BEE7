@@ -370,10 +370,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^15.0.2":
-  version: 15.0.2
-  resolution: "@types/node@npm:15.0.2"
-  checksum: ea8dd741bf16ad3318cca505783b7c211a5c8bea49202f99ba88d2ce8a804e994e1fd1b575b994e434e8b8ead810da966d588ea112998f8fe8d95cd74c396f8a
+"@types/node@npm:^18.0.0":
+  version: 18.11.9
+  resolution: "@types/node@npm:18.11.9"
+  checksum: 00fd27b167f580c0ce97c1ba363f410b311dc7b8d54cfd5734bb1763b096898a2f5e4bab5fe2d1769b04b211bfa43d102bb98c0ec420c23676dc5965825684e0
   languageName: node
   linkType: hard
 
@@ -666,7 +666,7 @@ __metadata:
     "@discordjs/opus": ^0.5.0
     "@types/common-tags": ^1.8.0
     "@types/ms": ^0.7.31
-    "@types/node": ^15.0.2
+    "@types/node": ^18.0.0
     "@types/node-fetch": ^2.5.10
     axios: ^0.21.1
     dayjs: ^1.10.4
