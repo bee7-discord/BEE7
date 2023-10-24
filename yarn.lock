@@ -370,10 +370,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^15.0.2":
-  version: 15.0.2
-  resolution: "@types/node@npm:15.0.2"
-  checksum: ea8dd741bf16ad3318cca505783b7c211a5c8bea49202f99ba88d2ce8a804e994e1fd1b575b994e434e8b8ead810da966d588ea112998f8fe8d95cd74c396f8a
+"@types/node@npm:^20.0.0":
+  version: 20.8.7
+  resolution: "@types/node@npm:20.8.7"
+  dependencies:
+    undici-types: ~5.25.1
+  checksum: 7bff045d0ecf48b39d283cbbaa024b018dd49f998941c4a73ce941583d7b64c4ebd44d88ddb3c5b65544c558f468eb8ce563c691516c996a3efb929461475db7
   languageName: node
   linkType: hard
 
@@ -666,7 +668,7 @@ __metadata:
     "@discordjs/opus": ^0.5.0
     "@types/common-tags": ^1.8.0
     "@types/ms": ^0.7.31
-    "@types/node": ^15.0.2
+    "@types/node": ^20.0.0
     "@types/node-fetch": ^2.5.10
     axios: ^0.21.1
     dayjs: ^1.10.4
@@ -4342,6 +4344,13 @@ typescript@^4.2.4:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 3be44317593182e8ce494c114e7ad9b0bb2553a22f3085cc6da4f0a36912c20850daa9be4c898af2ab6fc8b12f430c1c9e46ac715721867cd38643f2350d3ef9
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~5.25.1":
+  version: 5.25.3
+  resolution: "undici-types@npm:5.25.3"
+  checksum: 8e9f2fde798ae7b0587caef405d922b52941ff1cbaab4c219be2f8cb94979ef8b07e3b2c3ea2d57dbd8bf2ef6d22c4559fd94ef10f98236025693a8295681ef5
   languageName: node
   linkType: hard
 
